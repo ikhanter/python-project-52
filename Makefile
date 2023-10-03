@@ -7,8 +7,8 @@ lint:
 dev:
 	poetry run python3 manage.py runserver
 
-build:
-
-
 start:
 	poetry run gunicorn task_manager.wsgi
+
+migrate:
+	poetry run python manage.py migrate
