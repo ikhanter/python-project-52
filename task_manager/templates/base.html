@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+{% load django_bootstrap5 %}
+{%  load i18n %}
+{% bootstrap_css %}
+
+{% bootstrap_messages %}
+
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body class="d-flex flex-column bg-secondary" style="height: 100vh;">
+        {% include 'header.html' %}
+        {% block content %}{% endblock %}
+        {% include 'footer.html' %}
+    </body>
+</html>
