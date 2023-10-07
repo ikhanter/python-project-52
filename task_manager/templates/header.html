@@ -17,7 +17,7 @@
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">{% trans "Log in" %}</button>
-          <button type="button" class="btn btn-warning">{% trans "Sign up" %}</button>
+          <a href="{% url 'users_create' %}"><button type="link" class="btn btn-warning">{% trans "Sign up" %}</button></a>
         </div>
       </div>
     </div>
