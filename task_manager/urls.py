@@ -24,7 +24,7 @@ urlpatterns = [
     # path('users/<int:pk>/delete/', views.UsersDeleteView.as_view(), name='users_delete'),
     path('users/create/', views.UsersCreateView.as_view(), name='users_create'),
     # path('users/', views.UsersIndexView.as_view(), name='users_index'),
-    # path('login/', views.LoginView.as_view(), name='login'),
+    path('login/', views.LoginView.as_view(), name='login'),
     # path('logout/', views.LogoutView.as_view(), name='logout'),
     path('', views.IndexView.as_view(), name='index'),
 ]

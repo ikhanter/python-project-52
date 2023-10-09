@@ -11,8 +11,9 @@ class TimestampedModel(models.Model):
 class User(TimestampedModel):
     first_name = models.CharField()
     last_name = models.CharField()
-    username = models.CharField(validators=[MaxLengthValidator(150)], blank=False)
-    password = models.CharField(validators=[MinLengthValidator(3)], blank=False)
+    USERNAME_FIELD = models.CharField(validators=[MaxLengthValidator(150)])
+    PASSWORD_FIELD = models.CharField(validators=[MinLengthValidator(3)])
+    REQUIRED_FIELDS = ['USERNAME_FIELD', 'PASSWORD_FIELD']
 
     def __str__(self):
         return self.name

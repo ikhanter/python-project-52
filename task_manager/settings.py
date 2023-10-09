@@ -139,3 +139,5 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [BASE_DIR / 'locale/']
+
+AUTH_USER_MODEL = 'task_manager.User'

@@ -16,7 +16,7 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">{% trans "Log in" %}</button>
+          <a href="{% url 'login' %}"><button type="link" class="btn btn-outline-light me-2">{% trans "Log in" %}</button></a>
           <a href="{% url 'users_create' %}"><button type="link" class="btn btn-warning">{% trans "Sign up" %}</button></a>
         </div>
       </div>
