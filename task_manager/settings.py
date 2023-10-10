@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'task_manager',
+    'task_manager.users',
 ]
 
 MIDDLEWARE = [
@@ -140,4 +141,4 @@ LANGUAGES = [
 
 LOCALE_PATHS = [BASE_DIR / 'locale/']
 
-AUTH_USER_MODEL = 'task_manager.User'
+AUTH_USER_MODEL = 'users.User'
