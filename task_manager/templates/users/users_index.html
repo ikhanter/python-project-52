@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="d-flex flex-column flex-grow-1 align-items-center justify-items-center">
+<div class="d-flex flex-column flex-grow-1 align-items-center m-4 p-4 bg-dark border border-light border-2 rounded text-white shadow" style="width: 80%;">
+    <h3>{% trans "Users" %}</h3>
+    <table style="width: 100%;">
+        <tr>
+            <th style="width: 10%;">ID</th>
+            <th style="width: 25%;">{% trans "Username" %}</th>
+            <th style="width: 35%;">{% trans "Full name" %}</th>
+            <th style="width: 20%;">{% trans "Creation date" %}</th>
+            <th style="width: 10%;"></th>
+        </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.get_full_name }}</td>
+            <td>{{ user.created_at }}</td>
+            <td>
+                <a href="{% url 'users_index' %}">Изменить</a>
+                <a href="{% url 'users_index' %}">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock content %}

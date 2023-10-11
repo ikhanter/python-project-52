@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
+from .models import CustomUser
 
 # Create your views here.
 class UsersCreateView(View):
@@ -22,4 +23,12 @@ class UsersCreateView(View):
         messages.add_message(request, messages.ERROR, gettext_lazy('User is not created. Please, check the fields.'))
         return render(request, 'users/users_create.html', {
             'form': form,
+        })
+    
+class UsersIndexView(View):
+
+    def get(self, request, *args, **kwargs):
+        users = CustomUser.objects.all()
+        return render(request, 'users/users_index.html', {
+            'users': users
         })

@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import CustomUser
 from django.core.validators import MinLengthValidator
 from django.utils.translation import gettext_lazy
 
@@ -11,7 +11,7 @@ class UsersCreateForm(forms.ModelForm):
         help_text=gettext_lazy('For the password confirmation, please, enter the password one more time.'))
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['first_name', 'last_name', 'username', 'password']
         labels = {
             'first_name': gettext_lazy('First name'),
