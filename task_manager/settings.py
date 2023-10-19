@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'task_manager',
     'task_manager.users',
+    'task_manager.templatetags.custom_filters',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,7 @@ LANGUAGES = [
 LOCALE_PATHS = [BASE_DIR / 'locale/']
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+AUTHENTICATION_BACKENDS= [
+     'django.contrib.auth.backends.ModelBackend',
+]
