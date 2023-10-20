@@ -9,6 +9,7 @@
     </head>
     <body class="d-flex flex-column bg-secondary" style="height: 100vh;">
         {% include 'header.html' %}
+        {% bootstrap_messages %}
         {% block content %}{% endblock %}
         {% include 'footer.html' %}
     </body>

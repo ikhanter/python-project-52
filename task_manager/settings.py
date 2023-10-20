@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
 import os
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'task_manager',
     'task_manager.users',
-    'task_manager.templatetags.custom_filters',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +147,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS= [
      'django.contrib.auth.backends.ModelBackend',
 ]
+
+LOGIN_REDIRECT_URL = reverse_lazy('users:users_index')
+

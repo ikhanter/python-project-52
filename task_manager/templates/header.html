@@ -2,7 +2,6 @@
 {% load i18n %}
 {% bootstrap_css %}
 
-{% bootstrap_messages %}
 
 <header class="p-3 text-bg-dark">
     <div class="container">
@@ -17,7 +16,8 @@
 
         <div class="text-end">
           {% if user.is_authenticated %}
-          <a href="{% url 'logout' %}"><button type="link" class="btn btn-warning">{% trans "Log out" %}</button></a>
+          {{ user.username }}
+          <a href="{% url 'logout' %}"><button type="link" class="btn btn-warning ms-2">{% trans "Log out" %}</button></a>
           {% else %}
           <a href="{% url 'login' %}"><button type="link" class="btn btn-outline-light me-2">{% trans "Log in" %}</button></a>
           <a href="{% url 'users_create' %}"><button type="link" class="btn btn-warning">{% trans "Sign up" %}</button></a>
