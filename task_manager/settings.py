@@ -149,4 +149,3 @@ AUTHENTICATION_BACKENDS= [
 ]
 
 LOGIN_REDIRECT_URL = reverse_lazy('users:users_index')
-

@@ -21,3 +21,8 @@ migrate:
 .PHONY: build
 build:
 	./build.sh
+
+.PHONY: test
+test:
+	@poetry run python manage.py test task_manager.users
+ 
