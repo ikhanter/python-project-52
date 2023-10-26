@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
+# exit on error
+set -o errexit
 
-make install && psql -a -d $DATABASE_URL -f database.sql
+make install
+
+poetry run python manage.py migrate

@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['pageanalyzer-production.up.railway.app', 'webserver', '127.0.0.1']
+ALLOWED_HOSTS = ['pageanalyzer-production.up.railway.app', 'https://task-manager-2wl4.onrender.com', 'webserver', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'task_manager',
     'task_manager.users',
     'task_manager.statuses',
+    'task_manager.tasks',
 ]
 
 MIDDLEWARE = [
