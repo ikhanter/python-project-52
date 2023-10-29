@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% block content %}
+{% autoescape off %}
+<div class="d-flex flex-column flex-grow-1 align-items-center">
+    <div class="m-4 p-4 d-flex flex-column bg-dark border border-light border-2 rounded text-white shadow"
+        style="min-width: 40%; max-width: 80%;">
+        <h3>{% trans 'Task' %}</h3>
+        <table class="table table-dark table-hover table-borderless table-striped align-middle text-white" style="width: 100%;">
+            <tr>
+                <th>
+                    {% trans 'Name' %}
+                </th>
+                <th>
+                    {{ task.name }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {% trans 'Executor' %}
+                </th>
+                <th>
+                    {{ task.executor.full_name }} ({{ task.executor.username }})
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {% trans 'Creator' %}
+                </th>
+                <th>
+                    {{ task.creator.full_name }} ({{ task.creator.username }})
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {% trans 'Description' %}
+                </th>
+                <th>
+                    {{ task.description }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {% trans 'Creation date' %}
+                </th>
+                <th>
+                    {{ task.created_at }}
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endautoescape %}
+{% endblock %}

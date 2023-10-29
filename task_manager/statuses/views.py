@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy
+from django.db.models import ProtectedError
 from django.views import View
 from .models import Status
 from .forms import StatusesCreateForm
@@ -73,6 +74,10 @@ class StatusesDeleteView(LoginRequiredMixin, View):
     
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Status, pk=kwargs['pk'])
-        status.delete()
+        try:
+            status.delete()
+        except ProtectedError:
+            messages.add_message(request, messages.ERROR, gettext_lazy('You can\'t delete status until it\'s connected with active tasks.'))
+            return redirect('statuses_index')
         messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was deleted.'))
         return redirect('statuses_index')

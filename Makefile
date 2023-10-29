@@ -24,5 +24,5 @@ build:
 
 .PHONY: test
 test:
-	@poetry run python manage.py test task_manager.statuses
+	@poetry run python manage.py test task_manager.tasks
  

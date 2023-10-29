@@ -6,6 +6,7 @@ from django.views import View
 from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
 from .models import CustomUser
+from django.db.models import ProtectedError
 
 
 # Create your views here.
@@ -58,15 +59,16 @@ class UsersUpdateView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        form = UsersCreateForm(request.POST, instance=user)
-        try:
-            form.clean_password()
-        except ValidationError:
-            pass
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('User was updated successfully.'))  # noqa: E501
-            return redirect('users_index')
+        if request.user.pk == user.pk:
+            form = UsersCreateForm(request.POST, instance=user)
+            try:
+                form.clean_password()
+            except ValidationError:
+                pass
+            if form.is_valid():
+                form.save()
+                messages.add_message(request, messages.SUCCESS, gettext_lazy('User was updated successfully.'))  # noqa: E501
+                return redirect('users_index')
         messages.add_message(request, messages.ERROR, gettext_lazy('User is not updated. Please, check the fields.'))  # noqa: E501
         return render(request, 'users/users_update.html', {
             'form': form,
@@ -87,7 +89,11 @@ class UsersDeleteView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         user_id = kwargs['pk']
         user = get_object_or_404(CustomUser, pk=user_id)
-        if user:
-            user.delete()
-            messages.add_message(request, messages.SUCCESS, 'User was deleted.')  # noqa: E501
+        if request.user.pk == user.pk:
+            try:
+                user.delete()
+            except ProtectedError:
+                messages.add_message(request, messages.ERROR, gettext_lazy('You can\t delete yourself until you have active tasks.'))
+                return redirect('users_index')
+            messages.add_message(request, messages.SUCCESS, gettext_lazy('User was deleted.'))  # noqa: E501
         return redirect('index')
