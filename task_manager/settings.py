@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['task-manager-2wl4.onrender.com', 'webserver', '127.0.0.1']
+ALLOWED_HOSTS = ['task-manager-2wl4.onrender.com', 'dpg-ckt7cu5li67c73boi32g-a', 'webserver', '127.0.0.1']
 
 
 # Application definition
