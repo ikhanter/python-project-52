@@ -12,11 +12,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import django
 from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
 import os
 
 
+django.setup()
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'task_manager.users',
     'task_manager.statuses',
     'task_manager.tasks',
+    'task_manager.labels',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +151,5 @@ AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS= [
      'django.contrib.auth.backends.ModelBackend',
 ]
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'

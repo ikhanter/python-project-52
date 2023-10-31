@@ -17,9 +17,9 @@ class TestViews(TestCase):
             username='test_user',
             password='test_pass',
         )
-        self.statuses_update_url = reverse('statuses_update', args=[self.test_status.pk])
-        self.statuses_delete_url = reverse('statuses_delete', args=[self.test_status.pk])
-    
+        self.statuses_update_url = reverse('statuses_update', args=[self.test_status.pk])  # noqa: 501
+        self.statuses_delete_url = reverse('statuses_delete', args=[self.test_status.pk])  # noqa: 501
+
     def test_StatusesIndexView_GET(self):
         # Unauthorized
         response = self.client.get(self.statuses_index_url)
@@ -82,7 +82,7 @@ class TestViews(TestCase):
         response = self.client.post(self.statuses_update_url, {
             'status_name': 'test_status_status',
         })
-        self.assertEquals(Status.objects.get(pk=self.test_status.pk).status_name, 'test_status_status')
+        self.assertEquals(Status.objects.get(pk=self.test_status.pk).status_name, 'test_status_status')  # noqa: 501
         self.assertEquals(response.status_code, 302)
 
     def test_StatusesDeleteView_GET(self):
@@ -104,4 +104,3 @@ class TestViews(TestCase):
         response = self.client.post(self.statuses_delete_url)
         self.assertEquals(len(Status.objects.all()), 0)
         self.assertEquals(response.status_code, 302)
-        

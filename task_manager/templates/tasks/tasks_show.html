@@ -18,10 +18,34 @@
             </tr>
             <tr>
                 <th>
+                    {% trans 'Status' %}
+                </th>
+                <th>
+                    {{ task.status.status_name }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {% trans 'Labels' %}
+                </th>
+                <th>
+                    <table>
+                        {% for label in labels %}
+                        <tr>
+                            <th>
+                                {{ label.name }}
+                            </th>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </th>
+            </tr>
+            <tr>
+                <th>
                     {% trans 'Executor' %}
                 </th>
                 <th>
-                    {{ task.executor.full_name }} ({{ task.executor.username }})
+                    {{ task.executor.get_full_name }} ({{ task.executor.username }})
                 </th>
             </tr>
             <tr>
@@ -29,7 +53,7 @@
                     {% trans 'Creator' %}
                 </th>
                 <th>
-                    {{ task.creator.full_name }} ({{ task.creator.username }})
+                    {{ task.creator.get_full_name }} ({{ task.creator.username }})
                 </th>
             </tr>
             <tr>

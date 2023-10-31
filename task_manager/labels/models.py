@@ -2,6 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-class Status(models.Model):
-    status_name = models.CharField(max_length=255, unique=True)
+class Label(models.Model):
+    name = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)

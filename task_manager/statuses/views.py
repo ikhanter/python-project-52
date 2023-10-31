@@ -7,6 +7,7 @@ from django.views import View
 from .models import Status
 from .forms import StatusesCreateForm
 
+
 # Create your views here.
 class StatusesIndexView(LoginRequiredMixin, View):
 
@@ -17,7 +18,7 @@ class StatusesIndexView(LoginRequiredMixin, View):
         return render(request, 'statuses/statuses_index.html', {
             'statuses': statuses,
         })
-    
+
 
 class StatusesCreateView(LoginRequiredMixin, View):
 
@@ -28,14 +29,14 @@ class StatusesCreateView(LoginRequiredMixin, View):
         return render(request, 'statuses/statuses_create.html', {
             'form': form,
         })
-    
+
     def post(self, request, *args, **kwargs):
         form = StatusesCreateForm(request.POST, label_suffix='')
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was created successfully.'))
+            messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was created successfully.'))  # noqa: 501
             return redirect('statuses_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('Status with this name already exists.'))
+        messages.add_message(request, messages.ERROR, gettext_lazy('Status with this name already exists.'))  # noqa: 501
         return render(request, 'statuses/statuses_create.html', {
             'form': form,
         })
@@ -52,12 +53,12 @@ class StatusesUpdateView(LoginRequiredMixin, View):
             'form': form,
             'pk': status.pk,
         })
-    
+
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Status, pk=kwargs['pk'])
         form = StatusesCreateForm(request.POST, instance=status)
         form.save()
-        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was updated successfully.'))
+        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was updated successfully.'))  # noqa: 501
         return redirect('statuses_index')
 
 
@@ -67,17 +68,16 @@ class StatusesDeleteView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         status = get_object_or_404(Status, pk=kwargs['pk'])
-        # TODO: add check if status is linked with task. You can't delete this if task exists.
         return render(request, 'statuses/statuses_delete.html', {
             'pk': status.pk,
         })
-    
+
     def post(self, request, *args, **kwargs):
         status = get_object_or_404(Status, pk=kwargs['pk'])
         try:
             status.delete()
         except ProtectedError:
-            messages.add_message(request, messages.ERROR, gettext_lazy('You can\'t delete status until it\'s connected with active tasks.'))
+            messages.add_message(request, messages.ERROR, gettext_lazy('You can\'t delete status until it\'s connected with active tasks.'))  # noqa: 501
             return redirect('statuses_index')
-        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was deleted.'))
+        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was deleted.'))  # noqa: 501
         return redirect('statuses_index')

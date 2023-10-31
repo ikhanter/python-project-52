@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="d-flex flex-column flex-grow-1 align-items-center justify-items-center">
+<div class="d-flex flex-column flex-grow-1 align-items-center m-4 p-4 bg-dark border border-light border-2 rounded text-white shadow" style="width: 80%;">
+    <h3>{% trans "Labels" %}</h3>
+    <div class="align-items-start">
+        <a href="{% url 'labels_create' %}"><button type="link" class="btn btn-warning m-3 fs-4" style="width: 10vw;">{% trans "Create" %}</button></a>
+    </div>
+    <table class="table table-dark table-hover table-borderless table-striped align-middle" style="width: 100%;">
+        <tr class="text-white">
+            <th data-halign="center" style="width: 10%;">ID</th>
+            <th data-halign="center" style="width: 60%;">{% trans "Label name" %}</th>
+            <th data-halign="center" style="width: 20%;">{% trans "Creation date" %}</th>
+            <th data-halign="center" style="width: 10%;"></th>
+        </tr>
+    {% for label in labels %}
+        <tr class="text-white">
+            <td>{{ label.id }}</td>
+            <td>{{ label.name }}</td>
+            <td>{{ label.created_at }}</td>
+            <td>
+                <a href="{% url 'labels_update' pk=label.pk %}">{% trans "Update" %}</a>
+                <a href="{% url 'labels_delete' pk=label.pk %}">{% trans "Delete" %}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock content %}
