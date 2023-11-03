@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy
+from .filters import TaskFilter
 from .models import Task
 from .forms import TasksCreateForm
 
@@ -15,11 +16,11 @@ class TasksIndexView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         tasks = Task.objects.all()
+        task_filter = TaskFilter(request.GET, queryset=tasks, user=request.user)
         return render(request, 'tasks/tasks_index.html', {
-            'tasks': tasks,
+            'tasks': task_filter.qs,
+            'task_filter': task_filter.form,
         })
-
-    # TODO: make a filter
 
 
 class TasksCreateView(LoginRequiredMixin, View):

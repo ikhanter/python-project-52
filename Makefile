@@ -30,8 +30,3 @@ test:
 .PHONY: shell
 shell:
 	@poetry run python manage.py shell
- 
-.PHONY: test-coverage
- test-coverage:
-	poetry run coverage run manage.py test
-	coverage xml

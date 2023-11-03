@@ -14,12 +14,11 @@ dj-database-url = "^2.1.0"
 gunicorn = "^21.2.0"
 psycopg2-binary = "^2.9.9"
 django-bootstrap5 = "^23.3"
-coverage = "^7.3.2"
+django-filter = "^23.3"
 
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"
-django-nose = "^1.4.7"
 
 [build-system]
 requires = ["poetry-core"]

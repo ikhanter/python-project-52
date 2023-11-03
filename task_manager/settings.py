@@ -18,7 +18,6 @@ from dotenv import load_dotenv
 import os
 
 
-django.setup()
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'task_manager.statuses',
     'task_manager.tasks',
     'task_manager.labels',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -151,5 +151,3 @@ AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS= [
      'django.contrib.auth.backends.ModelBackend',
 ]
-
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'

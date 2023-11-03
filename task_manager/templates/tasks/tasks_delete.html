@@ -13,10 +13,9 @@
                 {% csrf_token %}
                 <input type="submit" value="{% trans 'Delete' %}" class="my-3 align-items-start btn btn-warning">
             </form>
-            <form action="{% url 'tasks_index' %}" method="get" class="d-flex">
-                {% csrf_token %}
-                <input type="submit" value="{% trans 'Cancel' %}" class="my-3 align-items-start btn btn-outline-light">
-            </form>
+            <div>
+                <a href="{% url 'tasks_index' %}"><button type="link" class="btn btn-outline-light m-3 align-items-center" style="width: 100%;">{% trans "Cancel" %}</button></a>
+            </div>
         </div>
     </div>
 </div>
