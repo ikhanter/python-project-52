@@ -7,11 +7,6 @@ from task_manager.users.models import CustomUser
 from task_manager.labels.models import Label
 from django import forms
 
-def filter_status(request):
-    if request is None:
-        return Task.objects.all()
-    return Task.objects.filter(status=request)
-
 
 class TaskFilter(django_filters.FilterSet):
     status = django_filters.ModelChoiceFilter(

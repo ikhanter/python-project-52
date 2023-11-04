@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="d-flex flex-grow-1 align-items-center justify-content-center">
+    <div class="d-flex flex-column p-4 bg-dark border border-light border-2 rounded shadow"
+        style="min-height: 10vh; min-width: 35vw; max-width: 50vw;">
+        <div class="flex-column">
+            <div class="text-white text-start" style="font-size: 3em;">
+                <p>{% trans "Task Manager" %}</p>
+            </div>
+            <div class="text-white" style="font-size: 1.5em;">
+                <p style="text-align: justify;">
+                    {% blocktranslate %}
+                    The task manager is a web service 
+                    for organizing tasks between users with 
+                    the ability to assign unique statuses, 
+                    a characteristic set of labels and executors to tasks.
+                    {% endblocktranslate %}
+                </p>
+                <p style="text-align: justify;">
+                    {% trans "Statuses, labels and tasks are created by the users themselves." %}
+                </p>
+                <p style="text-align: justify;">
+                    {% trans "There is protection against deleting statuses, labels and users if tasks are assigned to them." %}
+                </p>
+                <p style="text-align: justify;">
+                    {% blocktranslate %}
+                    A filter has been implemented to search for 
+                    task needs by status, labels and executor. There is 
+                    also a filter to display only tasks created by the user.
+                    {% endblocktranslate %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
