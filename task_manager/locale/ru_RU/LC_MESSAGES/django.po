@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-04 17:07+0000\n"
+"POT-Creation-Date: 2023-11-04 19:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 
 #: task_manager/forms.py:8 task_manager/forms.py:10
 #: task_manager/templates/users/users_index.html:12
-#: task_manager/users/forms.py:22 task_manager/users/forms.py:40
+#: task_manager/users/forms.py:32 task_manager/users/forms.py:49
 msgid "Username"
 msgstr "Имя пользователя"
 
 #: task_manager/forms.py:14 task_manager/forms.py:16
-#: task_manager/users/forms.py:23 task_manager/users/forms.py:46
+#: task_manager/users/forms.py:9 task_manager/users/forms.py:11
 msgid "Password"
 msgstr "Пароль"
 
@@ -83,33 +83,33 @@ msgstr "Вы не можете удалить статус, связанный �
 msgid "Status was deleted."
 msgstr "Статус был удален."
 
-#: task_manager/tasks/filters.py:13 task_manager/tasks/forms.py:17
+#: task_manager/tasks/filters.py:12 task_manager/tasks/forms.py:17
 #: task_manager/templates/tasks/tasks_show.html:21
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:19 task_manager/tasks/forms.py:18
+#: task_manager/tasks/filters.py:18 task_manager/tasks/forms.py:18
 #: task_manager/templates/tasks/tasks_index.html:30
 #: task_manager/templates/tasks/tasks_show.html:45
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/filters.py:25 task_manager/tasks/forms.py:19
+#: task_manager/tasks/filters.py:24 task_manager/tasks/forms.py:19
 #: task_manager/templates/header.html:17
 #: task_manager/templates/labels/labels_index.html:8
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/tasks/filters.py:30
+#: task_manager/tasks/filters.py:29
 msgid "Only my tasks"
 msgstr "Только мои задачи"
 
-#: task_manager/tasks/filters.py:34
+#: task_manager/tasks/filters.py:33
 msgid "Yes"
 msgstr "Да"
 
-#: task_manager/tasks/filters.py:34
+#: task_manager/tasks/filters.py:33
 msgid "No"
 msgstr "Нет"
 
@@ -124,7 +124,8 @@ msgstr "Задача была успешно создана."
 
 #: task_manager/tasks/views.py:45
 msgid "Task was not created. Please, fill the fields correctly."
-msgstr "Задача не была создана. Пожалуйста, проверьте правильность заполнения полей."
+msgstr ""
+"Задача не была создана. Пожалуйста, проверьте правильность заполнения полей."
 
 #: task_manager/tasks/views.py:76 task_manager/tasks/views.py:87
 msgid "You don't have permissions to update foreign tasks."
@@ -172,8 +173,8 @@ msgid ""
 "There is protection against deleting statuses, labels and users if tasks are "
 "assigned to them."
 msgstr ""
-"Присутсвует защита от удаления статусов, меток "
-"и пользователей, если за ними закреплены задачи."
+"Присутсвует защита от удаления статусов, меток и пользователей, если за ними "
+"закреплены задачи."
 
 #: task_manager/templates/about.html:28
 msgid ""
@@ -370,35 +371,34 @@ msgstr "Полное имя"
 msgid "Update profile"
 msgstr "Обновить профиль"
 
-#: task_manager/users/forms.py:10
+#: task_manager/users/forms.py:15
+msgid "Your password must contain at least 3 symbols."
+msgstr "Ваш пароль должен иметь длину более 3-х символов."
+
+#: task_manager/users/forms.py:18 task_manager/users/forms.py:20
 msgid "Confirm password"
 msgstr "Подтвердить пароль"
 
-#: task_manager/users/forms.py:14
+#: task_manager/users/forms.py:24
 msgid ""
 "For the password confirmation, please, enter the password one more time."
-msgstr ""
-"Для подтверждения пароля, пожалуйста, введите пароль еще раз."
+msgstr "Для подтверждения пароля, пожалуйста, введите пароль еще раз."
 
-#: task_manager/users/forms.py:20 task_manager/users/forms.py:28
+#: task_manager/users/forms.py:30 task_manager/users/forms.py:37
 msgid "First name"
 msgstr "Имя"
 
-#: task_manager/users/forms.py:21 task_manager/users/forms.py:34
+#: task_manager/users/forms.py:31 task_manager/users/forms.py:43
 msgid "Last name"
 msgstr "Фамилия"
 
-#: task_manager/users/forms.py:51
+#: task_manager/users/forms.py:55
 msgid ""
 "Required field. Max length is 150 symbols. Letters, digits and  @/./+/-/_ "
 "symbols are allowed."
 msgstr ""
-"Обязательное поле. Максимальная длина - 150 символов. Разрешены буквы, цифры и "
-"символы @/./+/-/_."
-
-#: task_manager/users/forms.py:52
-msgid "Your password must contain at least 3 symbols."
-msgstr "Ваш пароль должен иметь длину более 3-х символов."
+"Обязательное поле. Максимальная длина - 150 символов. Разрешены буквы, цифры "
+"и символы @/./+/-/_."
 
 #: task_manager/users/views.py:29
 msgid "User was created successfully."
@@ -418,7 +418,8 @@ msgstr "Информация о пользователе была успешно
 
 #: task_manager/users/views.py:72
 msgid "User is not updated. Please, check the fields."
-msgstr "Информация о пользователе не была обновлена. Пожалуйста, проверьте поля."
+msgstr ""
+"Информация о пользователе не была обновлена. Пожалуйста, проверьте поля."
 
 #: task_manager/users/views.py:86
 msgid "You do not have permissions to delete this user."

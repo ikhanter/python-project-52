@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-04 17:07+0000\n"
+"POT-Creation-Date: 2023-11-04 19:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 
 #: task_manager/forms.py:8 task_manager/forms.py:10
 #: task_manager/templates/users/users_index.html:12
-#: task_manager/users/forms.py:22 task_manager/users/forms.py:40
+#: task_manager/users/forms.py:32 task_manager/users/forms.py:49
 msgid "Username"
 msgstr "Username"
 
 #: task_manager/forms.py:14 task_manager/forms.py:16
-#: task_manager/users/forms.py:23 task_manager/users/forms.py:46
+#: task_manager/users/forms.py:9 task_manager/users/forms.py:11
 msgid "Password"
 msgstr "Password"
 
@@ -83,33 +83,33 @@ msgstr "You can't delete status until it's connected with active tasks."
 msgid "Status was deleted."
 msgstr "Status was deleted."
 
-#: task_manager/tasks/filters.py:13 task_manager/tasks/forms.py:17
+#: task_manager/tasks/filters.py:12 task_manager/tasks/forms.py:17
 #: task_manager/templates/tasks/tasks_show.html:21
 msgid "Status"
 msgstr "Status"
 
-#: task_manager/tasks/filters.py:19 task_manager/tasks/forms.py:18
+#: task_manager/tasks/filters.py:18 task_manager/tasks/forms.py:18
 #: task_manager/templates/tasks/tasks_index.html:30
 #: task_manager/templates/tasks/tasks_show.html:45
 msgid "Executor"
 msgstr "Executor"
 
-#: task_manager/tasks/filters.py:25 task_manager/tasks/forms.py:19
+#: task_manager/tasks/filters.py:24 task_manager/tasks/forms.py:19
 #: task_manager/templates/header.html:17
 #: task_manager/templates/labels/labels_index.html:8
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Labels"
 msgstr "Labels"
 
-#: task_manager/tasks/filters.py:30
+#: task_manager/tasks/filters.py:29
 msgid "Only my tasks"
 msgstr "Only my tasks"
 
-#: task_manager/tasks/filters.py:34
+#: task_manager/tasks/filters.py:33
 msgid "Yes"
 msgstr "Yes"
 
-#: task_manager/tasks/filters.py:34
+#: task_manager/tasks/filters.py:33
 msgid "No"
 msgstr "No"
 
@@ -370,35 +370,35 @@ msgstr "Full name"
 msgid "Update profile"
 msgstr "Update profile"
 
-#: task_manager/users/forms.py:10
+#: task_manager/users/forms.py:15
+msgid "Your password must contain at least 3 symbols."
+msgstr "Your password must contain at least 3 symbols."
+
+#: task_manager/users/forms.py:18 task_manager/users/forms.py:20
 msgid "Confirm password"
 msgstr "Confirm password"
 
-#: task_manager/users/forms.py:14
+#: task_manager/users/forms.py:24
 msgid ""
 "For the password confirmation, please, enter the password one more time."
 msgstr ""
 "For the password confirmation, please, enter the password one more time."
 
-#: task_manager/users/forms.py:20 task_manager/users/forms.py:28
+#: task_manager/users/forms.py:30 task_manager/users/forms.py:37
 msgid "First name"
 msgstr "First name"
 
-#: task_manager/users/forms.py:21 task_manager/users/forms.py:34
+#: task_manager/users/forms.py:31 task_manager/users/forms.py:43
 msgid "Last name"
 msgstr "Last name"
 
-#: task_manager/users/forms.py:51
+#: task_manager/users/forms.py:55
 msgid ""
 "Required field. Max length is 150 symbols. Letters, digits and  @/./+/-/_ "
 "symbols are allowed."
 msgstr ""
 "Required field. Max length is 150 symbols. Letters, digits and  @/./+/-/_ "
 "symbols are allowed."
-
-#: task_manager/users/forms.py:52
-msgid "Your password must contain at least 3 symbols."
-msgstr "Your password must contain at least 3 symbols."
 
 #: task_manager/users/views.py:29
 msgid "User was created successfully."
