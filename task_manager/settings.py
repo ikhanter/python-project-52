@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'task_manager.tasks',
     'task_manager.labels',
     'django_filters',
-    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -161,9 +160,3 @@ ROLLBAR = {
     'root': BASE_DIR,
 }
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-package=task_manager',
-]

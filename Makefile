@@ -33,4 +33,4 @@ shell:
 
 .PHONY: test-coverage
 test-coverage:
-	@poetry run coverage run manage.py test && poetry run coverage report
+	@poetry run coverage run manage.py test && poetry run coverage report && poetry run coverage xml -o coverage.xml
