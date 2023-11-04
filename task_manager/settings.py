@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'task_manager.tasks',
     'task_manager.labels',
     'django_filters',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -154,8 +155,15 @@ AUTHENTICATION_BACKENDS= [
 ]
 
 ROLLBAR = {
-    'access_token': '51fb6b9f1998490abc641f54fa36d23a',
+    'access_token': '183a6f6ceee04ec4a9af975f4ffe5259',
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
 }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=task_manager',
+]

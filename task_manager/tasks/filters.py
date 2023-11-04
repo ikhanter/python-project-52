@@ -5,7 +5,6 @@ from django import forms
 from task_manager.statuses.models import Status
 from task_manager.users.models import CustomUser
 from task_manager.labels.models import Label
-from django import forms
 
 
 class TaskFilter(django_filters.FilterSet):
@@ -40,7 +39,6 @@ class TaskFilter(django_filters.FilterSet):
         model = Task
         fields = ['status', 'executor', 'labels']
 
-    
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)

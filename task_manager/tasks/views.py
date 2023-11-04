@@ -16,7 +16,7 @@ class TasksIndexView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         tasks = Task.objects.all()
-        task_filter = TaskFilter(request.GET, queryset=tasks, user=request.user)
+        task_filter = TaskFilter(request.GET, queryset=tasks, user=request.user)  # noqa: E501
         return render(request, 'tasks/tasks_index.html', {
             'tasks': task_filter.qs,
             'task_filter': task_filter.form,
