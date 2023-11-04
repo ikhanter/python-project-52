@@ -25,8 +25,8 @@ class TestViews(TestCase):
         response = self.client.post(self.users_create_url, {
             'first_name': 'test1',
             'username': 'test1',
-            'password': 'test1',
-            'confirm_password': 'test1',
+            'password1': 'test1',
+            'password2': 'test1',
         })
         self.assertEquals(response.status_code, 302)
         self.assertEquals(CustomUser.objects.get(username='test1').first_name, 'test1')  # noqa: E501
@@ -51,16 +51,16 @@ class TestViews(TestCase):
         response1 = self.client.post(self.users_update_url, {
             'first_name': 'test_user',
             'username': 'test_user',
-            'password': 't',
-            'confirm_password': 't',
+            'password1': 't',
+            'password2': 't',
         })
         self.assertEquals(response1.status_code, 200)
         self.assertTemplateUsed(response1, 'users/users_update.html')
         response2 = self.client.post(self.users_update_url, {
             'first_name': 'test_user',
             'username': 'test_user',
-            'password': 'test_pass',
-            'confirm_password': 'test_pass',
+            'password1': 'test_pass',
+            'password2': 'test_pass',
         })
         self.assertEquals(response2.status_code, 302)
 
