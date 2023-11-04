@@ -155,7 +155,7 @@ AUTHENTICATION_BACKENDS= [
 ]
 
 ROLLBAR = {
-    'access_token': '183a6f6ceee04ec4a9af975f4ffe5259',
+    'access_token': os.getenv('ACCESS_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
