@@ -287,7 +287,7 @@ msgstr "Дата создания"
 #: task_manager/templates/users/users_index.html:24
 #: task_manager/templates/users/users_update.html:19
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/templates/labels/labels_update.html:9
 msgid "Update label"
