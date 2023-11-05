@@ -24,6 +24,7 @@ class TaskFilter(django_filters.FilterSet):
         label=gettext_lazy('Label'),
         label_suffix='',
         queryset=Label.objects.order_by('name'),
+        widget=forms.SelectMultiple(attrs={'class': 'form-control'})
     )
     self_tasks = django_filters.BooleanFilter(
         label=gettext_lazy('Only my tasks'),
