@@ -29,7 +29,7 @@ class TaskFilter(django_filters.FilterSet):
         label=gettext_lazy('Only my tasks'),
         label_suffix='',
         method='filter_by_user',
-        widget=forms.CheckboxInput(),
+        widget=forms.CheckboxInput,
     )
 
     class Meta:
