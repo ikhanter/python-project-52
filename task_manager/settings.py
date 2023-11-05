@@ -91,8 +91,16 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASE_URL = os.getenv('DATABASE_URL')
+parsed_url = dj_database_url.parse(DATABASE_URL)
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_health_checks=True, conn_max_age=600),
+    'default': {
+        'NAME': parsed_url['NAME'],
+        'USER': parsed_url['USER'],
+        'PASSWORD': parsed_url['PASSWORD'],
+        'HOST': parsed_url['HOST'],
+        'PORT': parsed_url['PORT'],
+        'ENGINE': 'django.db.backends.postgresql',
+    }
 }
 
 # Password validation
