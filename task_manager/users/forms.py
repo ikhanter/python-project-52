@@ -12,7 +12,7 @@ class UsersCreateForm(forms.ModelForm):
             },
         ),
         validators=[MinLengthValidator(3)],
-        help_text=gettext_lazy('Your password must contain at least 3 symbols.')
+        help_text=gettext_lazy('Your password must contain at least 3 symbols.')  # noqa: E501
     )
     password2 = forms.CharField(
         label=gettext_lazy('Confirm password'),

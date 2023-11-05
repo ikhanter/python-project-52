@@ -35,7 +35,7 @@ class LogoutView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         logout(request)
-        messages.add_message(request, messages.INFO, gettext_lazy('You are logged out.'))
+        messages.add_message(request, messages.INFO, gettext_lazy('You are logged out.'))  # noqa: E501
         return redirect('index')
 
 
