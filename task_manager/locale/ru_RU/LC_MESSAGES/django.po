@@ -356,7 +356,7 @@ msgstr "Регистрация"
 
 #: task_manager/templates/users/users_create.html:19
 msgid "Register"
-msgstr "Зарегистрироваться"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/users_delete.html:9
 msgid "Delete profile"
