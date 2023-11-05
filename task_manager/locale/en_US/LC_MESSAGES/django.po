@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 22:12+0000\n"
+"POT-Creation-Date: 2023-11-05 22:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,16 +89,15 @@ msgid "Status"
 msgstr "Status"
 
 #: task_manager/tasks/filters.py:18 task_manager/tasks/forms.py:18
-#: task_manager/templates/tasks/tasks_index.html:30
+#: task_manager/templates/tasks/tasks_index.html:22
 #: task_manager/templates/tasks/tasks_show.html:45
 msgid "Executor"
 msgstr "Executor"
 
-#: task_manager/tasks/filters.py:24 task_manager/tasks/forms.py:19
-#: task_manager/templates/header.html:17
-#: task_manager/templates/labels/labels_index.html:8
-#: task_manager/templates/tasks/tasks_show.html:29
-msgid "Labels"
+#: task_manager/tasks/filters.py:24
+#, fuzzy
+#| msgid "Labels"
+msgid "Label"
 msgstr "Labels"
 
 #: task_manager/tasks/filters.py:29
@@ -109,6 +108,12 @@ msgstr "Only my tasks"
 #: task_manager/templates/tasks/tasks_show.html:61
 msgid "Description"
 msgstr "Description"
+
+#: task_manager/tasks/forms.py:19 task_manager/templates/header.html:17
+#: task_manager/templates/labels/labels_index.html:8
+#: task_manager/templates/tasks/tasks_show.html:29
+msgid "Labels"
+msgstr "Labels"
 
 #: task_manager/tasks/views.py:43
 msgid "Task was created successfully."
@@ -257,7 +262,7 @@ msgstr "Label name"
 
 #: task_manager/templates/labels/labels_index.html:16
 #: task_manager/templates/statuses/statuses_index.html:16
-#: task_manager/templates/tasks/tasks_index.html:32
+#: task_manager/templates/tasks/tasks_index.html:24
 #: task_manager/templates/tasks/tasks_show.html:69
 #: task_manager/templates/users/users_index.html:14
 msgid "Creation date"
@@ -267,7 +272,7 @@ msgstr "Creation date"
 #: task_manager/templates/labels/labels_update.html:15
 #: task_manager/templates/statuses/statuses_index.html:25
 #: task_manager/templates/statuses/statuses_update.html:15
-#: task_manager/templates/tasks/tasks_index.html:43
+#: task_manager/templates/tasks/tasks_index.html:35
 #: task_manager/templates/tasks/tasks_update.html:15
 #: task_manager/templates/users/users_index.html:24
 #: task_manager/templates/users/users_update.html:19
@@ -276,7 +281,7 @@ msgstr "Update"
 
 #: task_manager/templates/labels/labels_index.html:26
 #: task_manager/templates/statuses/statuses_index.html:26
-#: task_manager/templates/tasks/tasks_index.html:44
+#: task_manager/templates/tasks/tasks_index.html:36
 #: task_manager/templates/users/users_index.html:25
 msgid "Delete"
 msgstr "Delete"
@@ -323,15 +328,15 @@ msgstr "Delete task"
 msgid "Are you sure? Do you want to delete task?"
 msgstr "Are you sure? Do you want to delete task?"
 
-#: task_manager/templates/tasks/tasks_index.html:23
+#: task_manager/templates/tasks/tasks_index.html:15
 msgid "Filter"
 msgstr "Filter"
 
-#: task_manager/templates/tasks/tasks_index.html:29
+#: task_manager/templates/tasks/tasks_index.html:21
 msgid "Task name"
 msgstr "Task name"
 
-#: task_manager/templates/tasks/tasks_index.html:31
+#: task_manager/templates/tasks/tasks_index.html:23
 #: task_manager/templates/tasks/tasks_show.html:53
 msgid "Creator"
 msgstr "Creator"

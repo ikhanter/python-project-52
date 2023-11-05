@@ -21,7 +21,7 @@ class TaskFilter(django_filters.FilterSet):
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
     labels = django_filters.ModelMultipleChoiceFilter(
-        label=gettext_lazy('Labels'),
+        label=gettext_lazy('Label'),
         label_suffix='',
         queryset=Label.objects.order_by('name'),
     )
