@@ -7,4 +7,4 @@ class CustomUser(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.get_full_name()} ({self.username})'.strip()
+        return f'{self.get_full_name()}'.strip()
