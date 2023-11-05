@@ -40,11 +40,11 @@ class TestViews(TestCase):
             name='test_label3',
         )
         self.test_task = Task.objects.create(
-            name='test_task', 
-            description='test_description', 
-            status=self.test_status1, 
-            creator=self.test_user1, 
-            executor=self.test_user2, 
+            name='test_task',
+            description='test_description',
+            status=self.test_status1,
+            creator=self.test_user1,
+            executor=self.test_user2,
         )
         self.test_task.labels.set([self.test_label1, self.test_label2])
         self.tasks_show_url = reverse('tasks_show', args=[self.test_task.pk])
