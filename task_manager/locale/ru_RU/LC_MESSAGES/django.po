@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 17:12+0000\n"
+"POT-Creation-Date: 2023-11-05 17:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,15 +249,11 @@ msgid "Are you sure? Do you want to delete label?"
 msgstr "Вы уверены, что хотите удалить метку?"
 
 #: task_manager/templates/labels/labels_delete.html:14
-#: task_manager/templates/labels/labels_index.html:26
 #: task_manager/templates/statuses/statuses_delete.html:14
-#: task_manager/templates/statuses/statuses_index.html:26
 #: task_manager/templates/tasks/tasks_delete.html:14
-#: task_manager/templates/tasks/tasks_index.html:44
 #: task_manager/templates/users/users_delete.html:14
-#: task_manager/templates/users/users_index.html:25
-msgid "Delete"
-msgstr "Удалить"
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/templates/labels/labels_delete.html:18
 #: task_manager/templates/statuses/statuses_delete.html:18
@@ -288,6 +284,13 @@ msgstr "Дата создания"
 #: task_manager/templates/users/users_update.html:19
 msgid "Update"
 msgstr "Изменить"
+
+#: task_manager/templates/labels/labels_index.html:26
+#: task_manager/templates/statuses/statuses_index.html:26
+#: task_manager/templates/tasks/tasks_index.html:44
+#: task_manager/templates/users/users_index.html:25
+msgid "Delete"
+msgstr "Удалить"
 
 #: task_manager/templates/labels/labels_update.html:9
 msgid "Update label"

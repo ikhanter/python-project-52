@@ -11,7 +11,7 @@
         <div class="d-flex flex-row gap-3">
             <form action="{% url 'tasks_delete' pk=pk %}" method="post" class="d-flex">
                 {% csrf_token %}
-                <input type="submit" value="{% trans 'Delete' %}" class="my-3 align-items-start btn btn-warning">
+                <input type="submit" value="{% trans 'Yes, delete' %}" class="my-3 align-items-start btn btn-warning">
             </form>
             <div>
                 <a href="{% url 'tasks_index' %}"><button type="link" class="btn btn-outline-light m-3 align-items-center" style="width: 100%;">{% trans "Cancel" %}</button></a>
