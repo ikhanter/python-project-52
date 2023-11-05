@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-from urllib.parse import quote_plus
+from urllib.parse import urlparse
 from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
 import os
@@ -91,15 +91,17 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-parsed_url = dj_database_url.parse(DATABASE_URL)
+parsed_url = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
-        'NAME': parsed_url['NAME'],
-        'USER': parsed_url['USER'],
-        'PASSWORD': parsed_url['PASSWORD'],
-        'HOST': parsed_url['HOST'],
-        'PORT': parsed_url['PORT'],
+        'NAME': parsed_url.path[1:],
+        'USER': parsed_url.username,
+        'PASSWORD': parsed_url.password,
+        'HOST': parsed_url.hostname,
+        'PORT': parsed_url.port,
         'ENGINE': 'django.db.backends.postgresql',
+        'CONN_MAX_AGE': 600,
+        'CONN_HEALTH_CHECKKS': True,
     }
 }
 
