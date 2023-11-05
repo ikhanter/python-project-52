@@ -92,12 +92,14 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 url = os.getenv('DATABASE_URL')
 parsed_url = dj_database_url.parse(url)
-parsed_url['PASSWORD'] = quote_plus(parsed_url['PASSWORD'])
+for key in parsed_url.keys():
+    parsed_url[key] = quote_plus(parsed_url[key])
 parsed_url['CONN_HEALTH_CHECKS'] = True
 parsed_url['CONN_MAX_AGE'] = 600
 DATABASES = {
     'default': parsed_url,
 }
+print(parsed_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
