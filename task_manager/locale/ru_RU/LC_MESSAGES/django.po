@@ -218,7 +218,7 @@ msgstr "Вход"
 
 #: task_manager/templates/header.html:28
 msgid "Sign up"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: task_manager/templates/index.html:13
 msgid "Organize and get the prize"
