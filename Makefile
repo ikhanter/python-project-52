@@ -1,7 +1,6 @@
 .PHONY: install
 install:
 	@poetry install
-	@poetry run python manage.py migrate
 
 .PHONY: lint
 lint:

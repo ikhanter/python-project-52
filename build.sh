@@ -2,6 +2,4 @@
 # exit on error
 set -o errexit
 
-make install
-
-poetry run python manage.py migrate
+make install && poetry run python manage.py migrate

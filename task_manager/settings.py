@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    'default': dj_database_url.config(conn_health_checks=True, conn_max_age=600),
+    'default': dj_database_url.config(default=DATABASE_URL, conn_health_checks=True, conn_max_age=600),
 }
 
 # Password validation
