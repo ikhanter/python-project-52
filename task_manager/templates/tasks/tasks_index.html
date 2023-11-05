@@ -10,17 +10,9 @@
         <a href="{% url 'tasks_create' %}"><button type="link" class="btn btn-warning m-3 fs-6" style="width: 10vw;">{% trans "Create task" %}</button></a>
     </div>
     <form action="{% url 'tasks_index' %}" method="get" class="d-flex flex-row w-100 justify-items-center">
-        {% for filter in task_filter %}
-        <div class="d-flex flex-column m-3" style="width: 20%">
-            {{ filter.label }}
-            {{ filter }}
-        </div>
-        {% endfor %}
-        <div class="d-flex flex-column m-3" style="width: 10%;">
-            <div>
-                <br>
-            </div>
-            <button type="submit" class="btn btn-warning h-100">{% trans 'Filter' %}</button>
+        <div class="d-flex flex-column m-3">
+            {{ task_filter.as_table }}
+            <button type="submit" class="btn btn-warning">{% trans 'Filter' %}</button>
         </div>
     </form>
     <table class="table table-dark table-hover table-borderless table-striped align-middle" style="width: 100%;">
