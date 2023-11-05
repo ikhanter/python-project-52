@@ -405,7 +405,7 @@ msgstr ""
 
 #: task_manager/users/views.py:29
 msgid "User was created successfully."
-msgstr "Пользователь был успешно создан."
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:31
 msgid "User is not created. Please, check the fields."
