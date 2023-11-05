@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 17:55+0000\n"
+"POT-Creation-Date: 2023-11-05 21:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,11 @@ msgstr "Label is linked with tasks. Delete linked tasks firstly."
 msgid "Label was deleted successfully."
 msgstr "Label was deleted successfully."
 
-#: task_manager/settings.py:144
+#: task_manager/settings.py:150
 msgid "Russian"
 msgstr "Russian"
 
-#: task_manager/settings.py:145
+#: task_manager/settings.py:151
 msgid "English"
 msgstr "English"
 
@@ -227,17 +227,9 @@ msgid "More"
 msgstr "More"
 
 #: task_manager/templates/labels/labels_create.html:9
+#: task_manager/templates/labels/labels_create.html:15
 msgid "Create label"
 msgstr "Create label"
-
-#: task_manager/templates/labels/labels_create.html:15
-#: task_manager/templates/labels/labels_index.html:10
-#: task_manager/templates/statuses/statuses_create.html:15
-#: task_manager/templates/statuses/statuses_index.html:10
-#: task_manager/templates/tasks/tasks_create.html:15
-#: task_manager/templates/tasks/tasks_index.html:10
-msgid "Create"
-msgstr "Create"
 
 #: task_manager/templates/labels/labels_delete.html:9
 msgid "Delete label"
@@ -260,6 +252,12 @@ msgstr "Yes, delete"
 #: task_manager/templates/users/users_delete.html:18
 msgid "Cancel"
 msgstr "Cancel"
+
+#: task_manager/templates/labels/labels_index.html:10
+#: task_manager/templates/statuses/statuses_index.html:10
+#: task_manager/templates/tasks/tasks_index.html:10
+msgid "Create"
+msgstr "Create"
 
 #: task_manager/templates/labels/labels_index.html:15
 msgid "Label name"
@@ -300,6 +298,7 @@ msgid "Login"
 msgstr "Login"
 
 #: task_manager/templates/statuses/statuses_create.html:9
+#: task_manager/templates/statuses/statuses_create.html:15
 msgid "Create status"
 msgstr "Create status"
 
@@ -320,6 +319,7 @@ msgid "Update status"
 msgstr "Update status"
 
 #: task_manager/templates/tasks/tasks_create.html:9
+#: task_manager/templates/tasks/tasks_create.html:15
 msgid "Create task"
 msgstr "Create task"
 

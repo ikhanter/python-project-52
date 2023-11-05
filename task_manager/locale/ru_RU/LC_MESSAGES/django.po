@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 17:53+0000\n"
+"POT-Creation-Date: 2023-11-05 21:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,11 @@ msgstr "Невозможно удалить метку, потому что он
 msgid "Label was deleted successfully."
 msgstr "Метка успешно удалена"
 
-#: task_manager/settings.py:144
+#: task_manager/settings.py:150
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:145
+#: task_manager/settings.py:151
 msgid "English"
 msgstr "Английский"
 
@@ -228,17 +228,9 @@ msgid "More"
 msgstr "Узнать больше"
 
 #: task_manager/templates/labels/labels_create.html:9
+#: task_manager/templates/labels/labels_create.html:15
 msgid "Create label"
 msgstr "Создать метку"
-
-#: task_manager/templates/labels/labels_create.html:15
-#: task_manager/templates/labels/labels_index.html:10
-#: task_manager/templates/statuses/statuses_create.html:15
-#: task_manager/templates/statuses/statuses_index.html:10
-#: task_manager/templates/tasks/tasks_create.html:15
-#: task_manager/templates/tasks/tasks_index.html:10
-msgid "Create"
-msgstr "Создать"
 
 #: task_manager/templates/labels/labels_delete.html:9
 msgid "Delete label"
@@ -261,6 +253,12 @@ msgstr "Да, удалить"
 #: task_manager/templates/users/users_delete.html:18
 msgid "Cancel"
 msgstr "Отменить"
+
+#: task_manager/templates/labels/labels_index.html:10
+#: task_manager/templates/statuses/statuses_index.html:10
+#: task_manager/templates/tasks/tasks_index.html:10
+msgid "Create"
+msgstr "Создать"
 
 #: task_manager/templates/labels/labels_index.html:15
 msgid "Label name"
@@ -301,6 +299,7 @@ msgid "Login"
 msgstr "Войти"
 
 #: task_manager/templates/statuses/statuses_create.html:9
+#: task_manager/templates/statuses/statuses_create.html:15
 msgid "Create status"
 msgstr "Создать статус"
 
@@ -321,6 +320,7 @@ msgid "Update status"
 msgstr "Обновить статус"
 
 #: task_manager/templates/tasks/tasks_create.html:9
+#: task_manager/templates/tasks/tasks_create.html:15
 msgid "Create task"
 msgstr "Создать задачу"
 
@@ -334,7 +334,7 @@ msgstr "Вы уверены, что хотите удалить задачу?"
 
 #: task_manager/templates/tasks/tasks_index.html:23
 msgid "Filter"
-msgstr "Фильтровать"
+msgstr "Показать"
 
 #: task_manager/templates/tasks/tasks_index.html:29
 msgid "Task name"
