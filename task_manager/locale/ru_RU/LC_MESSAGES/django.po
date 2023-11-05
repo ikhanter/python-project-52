@@ -412,11 +412,11 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:31
 msgid "User is not created. Please, check the fields."
-msgstr "Пользователь не создан. Пожалуйста, проверьте поля."
+msgstr "Пользователь не создан. Пожалуйста, проверьте поля"
 
 #: task_manager/users/views.py:57
 msgid "You do not have permissions to change this user."
-msgstr "Нельзя изменить этого пользователя."
+msgstr "Нельзя изменить этого пользователя"
 
 #: task_manager/users/views.py:70
 msgid "User was updated successfully."
@@ -425,19 +425,19 @@ msgstr "Пользователь успешно изменен"
 #: task_manager/users/views.py:72
 msgid "User is not updated. Please, check the fields."
 msgstr ""
-"Информация о пользователе не была обновлена. Пожалуйста, проверьте поля."
+"Информация о пользователе не была обновлена. Пожалуйста, проверьте поля"
 
 #: task_manager/users/views.py:86
 msgid "You do not have permissions to delete this user."
-msgstr "Нельзя удалить этого пользователя."
+msgstr "Нельзя удалить этого пользователя"
 
 #: task_manager/users/views.py:96
 msgid "You can\t delete yourself until you have active tasks."
-msgstr "Вы не можете удалить свой профиль, пока у вас есть активные задачи."
+msgstr "Вы не можете удалить свой профиль, пока у вас есть активные задачи"
 
 #: task_manager/users/views.py:98
 msgid "User was deleted."
-msgstr "Пользователь был удален."
+msgstr "Пользователь успешно удален"
 
 #: task_manager/views.py:27
 msgid "You are logged in."
@@ -446,7 +446,7 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:30
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
-"Ошибка в введенных пользовательских данных. Пожалуйста, попробуйте еще раз."
+"Ошибка в введенных пользовательских данных. Пожалуйста, попробуйте еще раз"
 
 #: task_manager/views.py:38
 msgid "You are logged out."
