@@ -6,15 +6,17 @@
 <div class="d-flex flex-column flex-grow-1 align-items-center justify-items-center">
 <div class="d-flex flex-column flex-grow-1 align-items-center m-4 p-4 bg-dark border border-light border-2 rounded text-white shadow" style="width: 80%;">
     <h3>{% trans "Tasks" %}</h3>
-    <div class="align-items-start">
+    <div class="align-items-center">
         <a href="{% url 'tasks_create' %}"><button type="link" class="btn btn-warning m-3 fs-6" style="width: 10vw;">{% trans "Create task" %}</button></a>
     </div>
-    <form action="{% url 'tasks_index' %}" method="get" class="d-flex flex-row w-100 justify-items-center">
-        <div class="d-flex flex-column m-3">
+    <div class="">
+    <form action="{% url 'tasks_index' %}" method="get" class="d-flex flex-column mb-3">
+        <div class="mb-3 w-100">
             {{ task_filter.as_table }}
-            <button type="submit" class="btn btn-warning">{% trans 'Filter' %}</button>
         </div>
+        <button type="submit" class="btn btn-warning">{% trans 'Filter' %}</button>
     </form>
+    </div>
     <table class="table table-dark table-hover table-borderless table-striped align-middle" style="width: 100%;">
         <tr class="text-white">
             <th data-halign="center" style="width: 10%;">ID</th>

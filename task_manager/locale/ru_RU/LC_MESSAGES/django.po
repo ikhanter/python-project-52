@@ -338,7 +338,7 @@ msgstr "Имя задачи"
 #: task_manager/templates/tasks/tasks_index.html:23
 #: task_manager/templates/tasks/tasks_show.html:53
 msgid "Creator"
-msgstr "Создатель"
+msgstr "Автор"
 
 #: task_manager/templates/tasks/tasks_show.html:9
 msgid "Task"
