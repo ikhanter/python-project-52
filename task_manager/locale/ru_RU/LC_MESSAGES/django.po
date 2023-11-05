@@ -141,7 +141,7 @@ msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/tasks/views.py:108
 msgid "Task was deleted successfully."
-msgstr "Задача была успешно удалена."
+msgstr "Задача успешно удалена"
 
 #: task_manager/templates/about.html:10 task_manager/templates/header.html:10
 #: task_manager/templates/index.html:10
@@ -209,7 +209,7 @@ msgstr "Задачи"
 
 #: task_manager/templates/header.html:25
 msgid "Log out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: task_manager/templates/header.html:27 task_manager/templates/login.html:8
 msgid "Log in"
