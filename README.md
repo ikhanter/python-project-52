@@ -2,4 +2,4 @@
 [![Actions Status](https://github.com/ikhanter/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ikhanter/python-project-52/actions)
 
 
-Link: [pageanalyzer-production.up.railway.app](https://pageanalyzer-production.up.railway.app/)
+Link: [https://task-manager-2wl4.onrender.com/](https://task-manager-2wl4.onrender.com/)
