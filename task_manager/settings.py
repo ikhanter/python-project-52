@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+# import dj_database_url
 from urllib.parse import urlparse
 from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['task-manager-2wl4.onrender.com', 'dpg-ckv795a37rbc73f4i7o0-a', 'webserver', '127.0.0.1']
+ALLOWED_HOSTS = ['task-manager-2wl4.onrender.com', 'dpg-ckv795a37rbc73f4i7o0-a', 'webserver', '127.0.0.1']  # noqa: E501
 
 
 # Application definition
@@ -155,8 +155,8 @@ LOCALE_PATHS = [BASE_DIR / 'locale/']
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-AUTHENTICATION_BACKENDS= [
-     'django.contrib.auth.backends.ModelBackend',
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROLLBAR = {
@@ -165,4 +165,3 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
-

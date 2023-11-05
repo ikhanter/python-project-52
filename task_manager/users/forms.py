@@ -9,7 +9,7 @@ class UsersCreateForm(forms.ModelForm):
         label=gettext_lazy('Password'),
         widget=forms.PasswordInput(attrs={
             'placeholder': gettext_lazy('Password')
-            },
+        },
         ),
         validators=[MinLengthValidator(3)],
         help_text=gettext_lazy('Your password must contain at least 3 symbols.')  # noqa: E501
@@ -18,7 +18,7 @@ class UsersCreateForm(forms.ModelForm):
         label=gettext_lazy('Confirm password'),
         widget=forms.PasswordInput(attrs={
             'placeholder': gettext_lazy('Confirm password'),
-            }
+        },
         ),
         validators=[MinLengthValidator(3)],
         help_text=gettext_lazy('For the password confirmation, please, enter the password one more time.'))  # noqa: E501

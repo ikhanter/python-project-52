@@ -8,8 +8,9 @@ class LoginForm(forms.Form):
         label=gettext_lazy('Username'),
         widget=forms.TextInput(attrs={
             'placeholder': gettext_lazy('Username'),
-            'class': 'mb-3'}),
-        )
+            'class': 'mb-3'}
+        ),
+    )
     password = forms.CharField(
         label=gettext_lazy('Password'),
         widget=forms.PasswordInput(attrs={

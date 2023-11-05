@@ -61,8 +61,8 @@ class TestFilter(TestCase):
         self.assertEquals(len(filtered_queryset), 1)
         self.assertIn(self.task1, filtered_queryset)
         test2 = {
-                    'self_tasks': True,
-                }
+            'self_tasks': True,
+        }
         filtered_queryset = TaskFilter(test2, queryset, user=self.test_user1).qs  # noqa: E501
         self.assertEquals(len(filtered_queryset), 2)
         self.assertIn(self.task1, filtered_queryset)

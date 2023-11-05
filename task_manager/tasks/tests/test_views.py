@@ -40,11 +40,11 @@ class TestViews(TestCase):
             name='test_label3',
         )
         self.test_task = Task.objects.create(
-            name='test_task',
-            description='test_description',
-            status=self.test_status1,
-            creator=self.test_user1,
-            executor=self.test_user2,
+            name='test_task', 
+            description='test_description', 
+            status=self.test_status1, 
+            creator=self.test_user1, 
+            executor=self.test_user2, 
         )
         self.test_task.labels.set([self.test_label1, self.test_label2])
         self.tasks_show_url = reverse('tasks_show', args=[self.test_task.pk])
@@ -98,7 +98,7 @@ class TestViews(TestCase):
             'description': 'test_description2',
             'status': self.test_status1.id,
             'executor': self.test_user2.id,
-            'labels': [self.test_label1.id,],
+            'labels': [self.test_label1.id],
         })
         self.assertEquals(len(Task.objects.all()), 3)
         self.assertEquals(response.status_code, 302)
@@ -120,7 +120,7 @@ class TestViews(TestCase):
             'description': 'test_description_changed',
             'status': self.test_status2.id,
             'executor': self.test_user1.id,
-            'labels': [self.test_label1.id,],
+            'labels': [self.test_label1.id],
         })
         self.assertEquals(response.status_code, 302)
         # Authorized
@@ -130,7 +130,7 @@ class TestViews(TestCase):
             'description': 'test_description_changed',
             'status': self.test_status2.id,
             'executor': self.test_user1.id,
-            'labels': [self.test_label1.id,],
+            'labels': [self.test_label1.id],
         })
         self.assertEquals(Task.objects.get(pk=self.test_task.pk).name, 'test_task_changed')  # noqa: 501
         self.assertEquals(Task.objects.get(pk=self.test_task.pk).description, 'test_description_changed')  # noqa: 501
