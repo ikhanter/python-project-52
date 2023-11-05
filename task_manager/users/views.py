@@ -96,4 +96,4 @@ class UsersDeleteView(LoginRequiredMixin, View):
                 messages.add_message(request, messages.ERROR, gettext_lazy('You can\t delete yourself until you have active tasks.'))  # noqa: E501
                 return redirect('users_index')
             messages.add_message(request, messages.SUCCESS, gettext_lazy('User was deleted.'))  # noqa: E501
-        return redirect('index')
+        return redirect('users_index')
