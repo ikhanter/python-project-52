@@ -129,7 +129,7 @@ msgstr ""
 
 #: task_manager/tasks/views.py:76 task_manager/tasks/views.py:87
 msgid "You don't have permissions to update foreign tasks."
-msgstr "Нельзя обновлять чужие задачи."
+msgstr "Задачу может изменить только ее автор"
 
 #: task_manager/tasks/views.py:85
 msgid "Task was updated successfully."
@@ -417,7 +417,7 @@ msgstr "Нельзя изменить этого пользователя."
 
 #: task_manager/users/views.py:70
 msgid "User was updated successfully."
-msgstr "Информация о пользователе была успешно обновлена."
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:72
 msgid "User is not updated. Please, check the fields."
