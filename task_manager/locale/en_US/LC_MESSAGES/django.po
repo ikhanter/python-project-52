@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 21:26+0000\n"
+"POT-Creation-Date: 2023-11-05 22:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,14 +104,6 @@ msgstr "Labels"
 #: task_manager/tasks/filters.py:29
 msgid "Only my tasks"
 msgstr "Only my tasks"
-
-#: task_manager/tasks/filters.py:33
-msgid "Yes"
-msgstr "Yes"
-
-#: task_manager/tasks/filters.py:33
-msgid "No"
-msgstr "No"
 
 #: task_manager/tasks/forms.py:16
 #: task_manager/templates/tasks/tasks_show.html:61
@@ -449,3 +441,9 @@ msgstr "Your username and password didn't match. Please try again."
 #: task_manager/views.py:38
 msgid "You are logged out."
 msgstr "You are logged out."
+
+#~ msgid "Yes"
+#~ msgstr "Yes"
+
+#~ msgid "No"
+#~ msgstr "No"

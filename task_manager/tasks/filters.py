@@ -29,10 +29,7 @@ class TaskFilter(django_filters.FilterSet):
         label=gettext_lazy('Only my tasks'),
         label_suffix='',
         method='filter_by_user',
-        widget=forms.Select(
-            choices=[(True, gettext_lazy('Yes')), (False, gettext_lazy('No'))],
-            attrs={'class': 'form-control'},
-        ),
+        widget=forms.CheckboxInput(),
     )
 
     class Meta:
