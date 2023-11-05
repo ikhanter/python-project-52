@@ -8,12 +8,12 @@ class StatusesCreateForm(forms.ModelForm):
     class Meta:
 
         model = Status
-        fields = ['status_name']
+        fields = ['name']
         labels = {
-            'status_name': gettext_lazy('Name'),
+            'name': gettext_lazy('Name'),
         }
         widgets = {
-            'status_name': forms.TextInput(attrs={
+            'name': forms.TextInput(attrs={
                 'placeholder': gettext_lazy('Name'),
                 'class': 'mb-3',
             })

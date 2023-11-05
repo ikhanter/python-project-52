@@ -13,10 +13,10 @@ class TestViews(TestCase):
         self.tasks_index_url = reverse('tasks_index')
         self.tasks_create_url = reverse('tasks_create')
         self.test_status1 = Status.objects.create(
-            status_name='test_status1',
+            name='test_status1',
         )
         self.test_status2 = Status.objects.create(
-            status_name='test_status2',
+            name='test_status2',
         )
         self.test_user1 = CustomUser.objects.create_user(
             first_name='test',
@@ -134,7 +134,7 @@ class TestViews(TestCase):
         })
         self.assertEquals(Task.objects.get(pk=self.test_task.pk).name, 'test_task_changed')  # noqa: 501
         self.assertEquals(Task.objects.get(pk=self.test_task.pk).description, 'test_description_changed')  # noqa: 501
-        self.assertEquals(Task.objects.get(pk=self.test_task.pk).status.status_name, 'test_status2')  # noqa: 501
+        self.assertEquals(Task.objects.get(pk=self.test_task.pk).status.name, 'test_status2')  # noqa: 501
         self.assertEquals(Task.objects.get(pk=self.test_task.pk).executor.username, 'test_user1')  # noqa: 501
         self.assertEquals(len(Task.objects.get(pk=self.test_task.pk).labels.all()), 1)  # noqa: 501
         self.assertEquals(response.status_code, 302)

@@ -11,7 +11,7 @@ class TestViews(TestCase):
         self.statuses_index_url = reverse('statuses_index')
         self.statuses_create_url = reverse('statuses_create')
         self.test_status = Status.objects.create(
-            status_name='test_status',
+            name='test_status',
         )
         self.test_user = CustomUser.objects.create_user(
             username='test_user',
@@ -43,20 +43,20 @@ class TestViews(TestCase):
     def test_StatusesCreateView_POST(self):
         # Unauthorized
         response = self.client.post(self.statuses_create_url, {
-            'status_name': 'test_status1',
+            'name': 'test_status1',
         })
         self.assertEquals(response.status_code, 302)
         # Authorized
         self.client.login(username='test_user', password='test_pass')
         # Already exists
         response = self.client.post(self.statuses_create_url, {
-            'status_name': 'test_status',
+            'name': 'test_status',
         })
         self.assertEquals(response.status_code, 200)
         self.assertEquals(len(Status.objects.all()), 1)
         # New one
         response = self.client.post(self.statuses_create_url, {
-            'status_name': 'test_status2',
+            'name': 'test_status2',
         })
         self.assertEquals(len(Status.objects.all()), 2)
         self.assertEquals(response.status_code, 302)
@@ -74,15 +74,15 @@ class TestViews(TestCase):
     def test_StatusesUpdateView_POST(self):
         # Unauthorized
         response = self.client.post(self.statuses_update_url, {
-            'status_name': 'test_status_status',
+            'name': 'test_status_status',
         })
         self.assertEquals(response.status_code, 302)
         # Authorized
         self.client.login(username='test_user', password='test_pass')
         response = self.client.post(self.statuses_update_url, {
-            'status_name': 'test_status_status',
+            'name': 'test_status_status',
         })
-        self.assertEquals(Status.objects.get(pk=self.test_status.pk).status_name, 'test_status_status')  # noqa: 501
+        self.assertEquals(Status.objects.get(pk=self.test_status.pk).name, 'test_status_status')  # noqa: 501
         self.assertEquals(response.status_code, 302)
 
     def test_StatusesDeleteView_GET(self):

@@ -13,8 +13,8 @@ class TestFilter(TestCase):
         self.label1 = Label.objects.create(name='label1')
         self.label2 = Label.objects.create(name='label2')
         self.label3 = Label.objects.create(name='label3')
-        self.status1 = Status.objects.create(status_name='status1')
-        self.status2 = Status.objects.create(status_name='status2')
+        self.status1 = Status.objects.create(name='status1')
+        self.status2 = Status.objects.create(name='status2')
         self.test_user1 = CustomUser.objects.create_user(
             username='test_user1',
             password='test_pass1',

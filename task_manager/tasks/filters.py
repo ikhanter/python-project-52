@@ -11,7 +11,7 @@ class TaskFilter(django_filters.FilterSet):
     status = django_filters.ModelChoiceFilter(
         label=gettext_lazy('Status'),
         label_suffix='',
-        queryset=Status.objects.order_by('status_name'),
+        queryset=Status.objects.order_by('name'),
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
     executor = django_filters.ModelChoiceFilter(
