@@ -27,13 +27,13 @@ class LabelsCreateView(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request, *args, **kwargs):
-        form = LabelsCreateForm()
+        form = LabelsCreateForm(label_suffix='')
         return render(request, 'labels/labels_create.html', {
             'form': form,
         })
 
     def post(self, request, *args, **kwargs):
-        form = LabelsCreateForm(request.POST)
+        form = LabelsCreateForm(request.POST, label_suffix='')
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, gettext_lazy('Label was created successfully.'))  # noqa: 501
@@ -50,7 +50,7 @@ class LabelsUpdateView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         label = get_object_or_404(Label, pk=kwargs['pk'])
-        form = LabelsCreateForm(instance=label)
+        form = LabelsCreateForm(instance=label, label_suffix='')
         return render(request, 'labels/labels_update.html', {
             'form': form,
             'pk': label.pk,
@@ -58,7 +58,7 @@ class LabelsUpdateView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         label = get_object_or_404(Label, pk=kwargs['pk'])
-        form = LabelsCreateForm(request.POST, instance=label)
+        form = LabelsCreateForm(request.POST, instance=label, label_suffix='')
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, gettext_lazy('Label was updated successfully.'))  # noqa: 501

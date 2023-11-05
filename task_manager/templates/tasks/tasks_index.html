@@ -7,7 +7,7 @@
 <div class="d-flex flex-column flex-grow-1 align-items-center m-4 p-4 bg-dark border border-light border-2 rounded text-white shadow" style="width: 80%;">
     <h3>{% trans "Tasks" %}</h3>
     <div class="align-items-start">
-        <a href="{% url 'tasks_create' %}"><button type="link" class="btn btn-warning m-3 fs-4" style="width: 10vw;">{% trans "Create task" %}</button></a>
+        <a href="{% url 'tasks_create' %}"><button type="link" class="btn btn-warning m-3 fs-6" style="width: 10vw;">{% trans "Create task" %}</button></a>
     </div>
     <form action="{% url 'tasks_index' %}" method="get" class="d-flex flex-row w-100 justify-items-center">
         {% for filter in task_filter %}
