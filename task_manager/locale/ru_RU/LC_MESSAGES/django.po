@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 21:21+0000\n"
+"POT-Creation-Date: 2023-11-05 21:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,10 +228,15 @@ msgid "More"
 msgstr "Узнать больше"
 
 #: task_manager/templates/labels/labels_create.html:9
-#: task_manager/templates/labels/labels_create.html:15
 #: task_manager/templates/labels/labels_index.html:10
 msgid "Create label"
 msgstr "Создать метку"
+
+#: task_manager/templates/labels/labels_create.html:15
+#: task_manager/templates/statuses/statuses_create.html:15
+#: task_manager/templates/tasks/tasks_create.html:15
+msgid "Create"
+msgstr "Создать"
 
 #: task_manager/templates/labels/labels_delete.html:9
 msgid "Delete label"
@@ -294,7 +299,6 @@ msgid "Login"
 msgstr "Войти"
 
 #: task_manager/templates/statuses/statuses_create.html:9
-#: task_manager/templates/statuses/statuses_create.html:15
 #: task_manager/templates/statuses/statuses_index.html:10
 msgid "Create status"
 msgstr "Создать статус"
@@ -316,7 +320,6 @@ msgid "Update status"
 msgstr "Обновить статус"
 
 #: task_manager/templates/tasks/tasks_create.html:9
-#: task_manager/templates/tasks/tasks_create.html:15
 #: task_manager/templates/tasks/tasks_index.html:10
 msgid "Create task"
 msgstr "Создать задачу"
@@ -448,6 +451,3 @@ msgstr ""
 #: task_manager/views.py:38
 msgid "You are logged out."
 msgstr "Вы разлогинены"
-
-#~ msgid "Create"
-#~ msgstr "Создать"
