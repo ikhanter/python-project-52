@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 16:50+0000\n"
+"POT-Creation-Date: 2023-11-05 17:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -442,3 +442,9 @@ msgstr "You are logged in."
 #: task_manager/views.py:30
 msgid "Your username and password didn't match. Please try again."
 msgstr "Your username and password didn't match. Please try again."
+
+#: task_manager/views.py:38
+#, fuzzy
+#| msgid "You are logged in."
+msgid "You are logged out."
+msgstr "You are logged in."
