@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 21:15+0000\n"
+"POT-Creation-Date: 2023-11-05 21:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,6 +228,7 @@ msgstr "More"
 
 #: task_manager/templates/labels/labels_create.html:9
 #: task_manager/templates/labels/labels_create.html:15
+#: task_manager/templates/labels/labels_index.html:10
 msgid "Create label"
 msgstr "Create label"
 
@@ -252,12 +253,6 @@ msgstr "Yes, delete"
 #: task_manager/templates/users/users_delete.html:18
 msgid "Cancel"
 msgstr "Cancel"
-
-#: task_manager/templates/labels/labels_index.html:10
-#: task_manager/templates/statuses/statuses_index.html:10
-#: task_manager/templates/tasks/tasks_index.html:10
-msgid "Create"
-msgstr "Create"
 
 #: task_manager/templates/labels/labels_index.html:15
 msgid "Label name"
@@ -299,6 +294,7 @@ msgstr "Login"
 
 #: task_manager/templates/statuses/statuses_create.html:9
 #: task_manager/templates/statuses/statuses_create.html:15
+#: task_manager/templates/statuses/statuses_index.html:10
 msgid "Create status"
 msgstr "Create status"
 
@@ -320,6 +316,7 @@ msgstr "Update status"
 
 #: task_manager/templates/tasks/tasks_create.html:9
 #: task_manager/templates/tasks/tasks_create.html:15
+#: task_manager/templates/tasks/tasks_index.html:10
 msgid "Create task"
 msgstr "Create task"
 
@@ -449,3 +446,6 @@ msgstr "Your username and password didn't match. Please try again."
 #: task_manager/views.py:38
 msgid "You are logged out."
 msgstr "You are logged out."
+
+#~ msgid "Create"
+#~ msgstr "Create"
