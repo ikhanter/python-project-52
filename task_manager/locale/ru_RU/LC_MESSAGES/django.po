@@ -37,23 +37,23 @@ msgstr "Имя"
 
 #: task_manager/labels/views.py:39
 msgid "Label was created successfully."
-msgstr "Метка была успешно создана."
+msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py:41 task_manager/labels/views.py:66
 msgid "This label already exists."
-msgstr "Такая метка уже существует."
+msgstr "Такая метка уже существует"
 
 #: task_manager/labels/views.py:64
 msgid "Label was updated successfully."
-msgstr "Метка была успешно обновлена."
+msgstr "Метка успешно изменена"
 
 #: task_manager/labels/views.py:90 task_manager/labels/views.py:99
 msgid "Label is linked with tasks. Delete linked tasks firstly."
-msgstr "Метка связана с задачами. Сначала удалите связанные с меткой задачи."
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/labels/views.py:97
 msgid "Label was deleted successfully."
-msgstr "Метка была успешно удалена."
+msgstr "Метка успешно удалена"
 
 #: task_manager/settings.py:144
 msgid "Russian"
@@ -65,7 +65,7 @@ msgstr "Английский"
 
 #: task_manager/statuses/views.py:37
 msgid "Status was created successfully."
-msgstr "Статус был успешно создан."
+msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py:39
 msgid "Status with this name already exists."
@@ -73,15 +73,15 @@ msgstr "Статус с таким именем уже существует."
 
 #: task_manager/statuses/views.py:61
 msgid "Status was updated successfully."
-msgstr "Статус был успешно обновлен."
+msgstr "Статус успешно изменен"
 
 #: task_manager/statuses/views.py:80
 msgid "You can't delete status until it's connected with active tasks."
-msgstr "Вы не можете удалить статус, связанный с активными задачами."
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/statuses/views.py:82
 msgid "Status was deleted."
-msgstr "Статус был удален."
+msgstr "Статус успешно удален"
 
 #: task_manager/tasks/filters.py:12 task_manager/tasks/forms.py:17
 #: task_manager/templates/tasks/tasks_show.html:21
@@ -120,7 +120,7 @@ msgstr "Описание"
 
 #: task_manager/tasks/views.py:43
 msgid "Task was created successfully."
-msgstr "Задача была успешно создана."
+msgstr "Задача успешно создана"
 
 #: task_manager/tasks/views.py:45
 msgid "Task was not created. Please, fill the fields correctly."
@@ -133,11 +133,11 @@ msgstr "Нельзя обновлять чужие задачи."
 
 #: task_manager/tasks/views.py:85
 msgid "Task was updated successfully."
-msgstr "Задача была успешно обновлена."
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py:101 task_manager/tasks/views.py:110
 msgid "You don't have permissions to delete foreign tasks."
-msgstr "Нельзя удалять чужие задачи."
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/tasks/views.py:108
 msgid "Task was deleted successfully."
@@ -438,7 +438,7 @@ msgstr "Пользователь был удален."
 
 #: task_manager/views.py:27
 msgid "You are logged in."
-msgstr "Вы вошли."
+msgstr "Вы залогинены"
 
 #: task_manager/views.py:30
 msgid "Your username and password didn't match. Please try again."
