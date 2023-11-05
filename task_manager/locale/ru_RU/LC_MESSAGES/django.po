@@ -380,7 +380,7 @@ msgstr "Ваш пароль должен иметь длину более 3-х �
 
 #: task_manager/users/forms.py:18 task_manager/users/forms.py:20
 msgid "Confirm password"
-msgstr "Подтвердить пароль"
+msgstr "Подтверждение пароля"
 
 #: task_manager/users/forms.py:24
 msgid ""
