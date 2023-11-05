@@ -92,8 +92,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 url = os.getenv('DATABASE_URL')
 parsed_url = dj_database_url.parse(url)
-for key in parsed_url.keys():
-    parsed_url[key] = quote_plus(parsed_url[key])
+parsed_url['PASSWORD'] = quote_plus(parsed_url['PASSWORD'])
 parsed_url['CONN_HEALTH_CHECKS'] = True
 parsed_url['CONN_MAX_AGE'] = 600
 DATABASES = {
