@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# import dj_database_url
 from urllib.parse import urlparse
 from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
