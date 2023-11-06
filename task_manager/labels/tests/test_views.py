@@ -13,10 +13,10 @@ class TestViews(TestCase):
         self.labels_index_url = reverse('labels_index')
         self.labels_create_url = reverse('labels_create')
         self.test_status1 = Status.objects.create(
-            status_name='test_status1',
+            name='test_status1',
         )
         self.test_status2 = Status.objects.create(
-            status_name='test_status2',
+            name='test_status2',
         )
         self.test_user1 = CustomUser.objects.create_user(
             first_name='test1',
