@@ -30,6 +30,7 @@ Task Manager is the web-service for organizing tasks between registered users. E
 
 # Installing
 The command below will install all dependencies and database template for correct work of the web-service locally or on a deploy.
+
 ```make build```
 
 After installing file ".env" should be created in the root directory of the project. This file must contain environment variables:
@@ -43,5 +44,5 @@ On a deployment these variables should be defined on your deploy service.
 # Dev mode with debug
 ```make dev```
 
-#Launch web-service
+# Launch web-service
 ```make start```
