@@ -1,83 +1,58 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy
+from django.urls import reverse_lazy
 from django.db.models import ProtectedError
-from django.views import View
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from .models import Status
 from .forms import StatusesCreateForm
 
 
 # Create your views here.
-class StatusesIndexView(LoginRequiredMixin, View):
+class StatusesIndexView(LoginRequiredMixin, ListView):
 
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        statuses = Status.objects.all()
-        return render(request, 'statuses/statuses_index.html', {
-            'statuses': statuses,
-        })
+    model = Status
+    template_name = 'statuses/statuses_index.html'
+    context_object_name = 'statuses'
 
 
-class StatusesCreateView(LoginRequiredMixin, View):
+class StatusesCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        form = StatusesCreateForm(label_suffix='')
-        return render(request, 'statuses/statuses_create.html', {
-            'form': form,
-        })
-
-    def post(self, request, *args, **kwargs):
-        form = StatusesCreateForm(request.POST, label_suffix='')
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was created successfully.'))  # noqa: 501
-            return redirect('statuses_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('Status with this name already exists.'))  # noqa: 501
-        return render(request, 'statuses/statuses_create.html', {
-            'form': form,
-        })
+    model = Status
+    form_class = StatusesCreateForm
+    template_name = 'statuses/statuses_create.html'
+    success_message = gettext_lazy('Status was created successfully')
+    success_url = reverse_lazy('statuses_index')
 
 
-class StatusesUpdateView(LoginRequiredMixin, View):
+class StatusesUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
-    login_url = '/login/'
+    model = Status
+    form_class = StatusesCreateForm
+    template_name = 'statuses/statuses_update.html'
+    success_url = reverse_lazy('statuses_index')
+    success_message = gettext_lazy('Status was updated successfully')
+    context_object_name = 'status'
 
-    def get(self, request, *args, **kwargs):
-        status = get_object_or_404(Status, pk=kwargs['pk'])
-        form = StatusesCreateForm(instance=status, label_suffix='')
-        return render(request, 'statuses/statuses_update.html', {
-            'form': form,
-            'pk': status.pk,
-        })
+
+class StatusesDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+
+    model = Status
+    template_name = 'statuses/statuses_delete.html'
+    success_url = reverse_lazy('statuses_index')
+    success_message = gettext_lazy('Status was deleted')
+    context_object_name = 'status'
 
     def post(self, request, *args, **kwargs):
-        status = get_object_or_404(Status, pk=kwargs['pk'])
-        form = StatusesCreateForm(request.POST, instance=status)
-        form.save()
-        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was updated successfully.'))  # noqa: 501
-        return redirect('statuses_index')
-
-
-class StatusesDeleteView(LoginRequiredMixin, View):
-
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        status = get_object_or_404(Status, pk=kwargs['pk'])
-        return render(request, 'statuses/statuses_delete.html', {
-            'pk': status.pk,
-        })
-
-    def post(self, request, *args, **kwargs):
-        status = get_object_or_404(Status, pk=kwargs['pk'])
         try:
-            status.delete()
+            super().post(request, *args, **kwargs)
         except ProtectedError:
-            messages.add_message(request, messages.ERROR, gettext_lazy('You can\'t delete status until it\'s connected with active tasks.'))  # noqa: 501
-            return redirect('statuses_index')
-        messages.add_message(request, messages.SUCCESS, gettext_lazy('Status was deleted.'))  # noqa: 501
+            messages.add_message(
+                request,
+                messages.ERROR,
+                gettext_lazy('You can\'t delete status until it\'s \
+                             connected with active tasks'),
+            )
         return redirect('statuses_index')

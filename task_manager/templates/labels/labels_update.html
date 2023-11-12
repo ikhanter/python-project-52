@@ -7,7 +7,7 @@
     <div class="m-4 p-4 d-flex flex-column bg-dark border border-light border-2 rounded text-white shadow"
         style="min-width: 40%; max-width: 80%;">
         <h3>{% trans 'Update label' %}</h3>
-        <form action="{% url 'labels_update' pk=pk %}" method="post" class="d-flex flex-column">
+        <form action="{% url 'labels_update' pk=label.pk %}" method="post" class="d-flex flex-column">
             {% csrf_token %}
             {% for field in form %}
                 {{ field.label_tag }} {{ field }}

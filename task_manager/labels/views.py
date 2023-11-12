@@ -1,77 +1,51 @@
-from django.shortcuts import render, redirect
-from django.views import View
+from django.shortcuts import redirect
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy
+from django.urls import reverse_lazy
 from task_manager.tasks.models import Task
 from .models import Label
 from .forms import LabelsCreateForm
 
 
 # Create your views here.
-class LabelsIndexView(LoginRequiredMixin, View):
+class LabelsIndexView(LoginRequiredMixin, ListView):
 
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        labels = Label.objects.all()
-        return render(request, 'labels/labels_index.html', {
-            'labels': labels,
-        })
+    model = Label
+    template_name = 'labels/labels_index.html'
+    context_object_name = 'labels'
 
 
-class LabelsCreateView(LoginRequiredMixin, View):
+class LabelsCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        form = LabelsCreateForm(label_suffix='')
-        return render(request, 'labels/labels_create.html', {
-            'form': form,
-        })
-
-    def post(self, request, *args, **kwargs):
-        form = LabelsCreateForm(request.POST, label_suffix='')
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('Label was created successfully.'))  # noqa: 501
-            return redirect('labels_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('This label already exists.'))  # noqa: 501
-        return render(request, 'labels/labels_create.html', {
-            'form': form,
-        })
+    model = Label
+    template_name = 'labels/labels_create.html'
+    form_class = LabelsCreateForm
+    success_url = reverse_lazy('labels_index')
+    success_message = gettext_lazy('Label was created successfully')
 
 
-class LabelsUpdateView(LoginRequiredMixin, View):
+class LabelsUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
-    login_url = '/login/'
-
-    def get(self, request, *args, **kwargs):
-        label = get_object_or_404(Label, pk=kwargs['pk'])
-        form = LabelsCreateForm(instance=label, label_suffix='')
-        return render(request, 'labels/labels_update.html', {
-            'form': form,
-            'pk': label.pk,
-        })
-
-    def post(self, request, *args, **kwargs):
-        label = get_object_or_404(Label, pk=kwargs['pk'])
-        form = LabelsCreateForm(request.POST, instance=label, label_suffix='')
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('Label was updated successfully.'))  # noqa: 501
-            return redirect('labels_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('This label already exists.'))  # noqa: 501
-        return render(request, 'labels/labels_update.html', {
-            'form': form,
-        })
+    model = Label
+    form_class = LabelsCreateForm
+    template_name = 'labels/labels_update.html'
+    success_url = reverse_lazy('labels_index')
+    success_message = gettext_lazy('Label was updated successfully')
+    context_object_name = 'label'
 
 
-class LabelsDeleteView(LoginRequiredMixin, View):
+class LabelsDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
-    login_url = '/login/'
+    model = Label
+    template_name = 'labels/labels_delete.html'
+    success_url = reverse_lazy('labels_index')
+    success_message = gettext_lazy('Label was deleted successfully')
+    context_object_name = 'label'
 
     def has_linked_tasks(self, label):
         try:
@@ -81,20 +55,14 @@ class LabelsDeleteView(LoginRequiredMixin, View):
             return True
         return False
 
-    def get(self, request, *args, **kwargs):
-        label = get_object_or_404(Label, pk=kwargs['pk'])
-        if not self.has_linked_tasks(label):
-            return render(request, 'labels/labels_delete.html', {
-                'pk': label.pk,
-            })
-        messages.add_message(request, messages.ERROR, gettext_lazy('Label is linked with tasks. Delete linked tasks firstly.'))  # noqa: 501
-        return redirect('labels_index')
-
     def post(self, request, *args, **kwargs):
         label = get_object_or_404(Label, pk=kwargs['pk'])
         if not self.has_linked_tasks(label):
-            label.delete()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('Label was deleted successfully.'))  # noqa: 501
-            return redirect('labels_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('Label is linked with tasks. Delete linked tasks firstly.'))  # noqa: 501
+            super().post(request, *args, **kwargs)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('Label is linked with tasks. \
+                         Delete linked tasks firstly'),
+        )
         return redirect('labels_index')

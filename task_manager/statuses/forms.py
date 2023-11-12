@@ -18,3 +18,17 @@ class StatusesCreateForm(forms.ModelForm):
                 'class': 'mb-3',
             })
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].label_suffix = ''
+
+    def is_valid(self):
+        try:
+            return super().is_valid()
+        except forms.ValidationError:
+            self.add_error(
+                'name',
+                gettext_lazy('Status with this name already exists'),
+            )
+            return False

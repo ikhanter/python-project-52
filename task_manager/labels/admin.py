@@ -6,6 +6,6 @@ from .models import Label
 @admin.register(Label)
 class LabelAdmin(admin.ModelAdmin):
 
-    list_display = ['id', 'name']  # noqa: E501
+    list_display = ['id', 'name']
     list_filter = ['name']
     search_fields = ['name']

@@ -22,12 +22,24 @@ class LoginView(View):
         })
 
     def post(self, request, *args, **kwargs):
-        user = authenticate(username=request.POST['username'], password=request.POST['password'])  # noqa: E501
+        user = authenticate(
+            username=request.POST['username'],
+            password=request.POST['password'],
+        )
         if user:
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('You are logged in.'))  # noqa: E501
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                gettext_lazy('You are logged in.'),
+            )
             login(request, user)
             return redirect('index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('Your username and password didn\'t match. Please try again.'))  # noqa: E501
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('Your username and password didn\'t match. \
+                         Please try again.'),
+        )
         return redirect('login')
 
 
@@ -35,7 +47,11 @@ class LogoutView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         logout(request)
-        messages.add_message(request, messages.INFO, gettext_lazy('You are logged out.'))  # noqa: E501
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            gettext_lazy('You are logged out.'),
+        )
         return redirect('index')
 
 

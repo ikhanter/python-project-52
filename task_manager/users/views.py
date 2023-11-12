@@ -1,99 +1,110 @@
-from django.forms import ValidationError
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
+from django.contrib.auth import get_user_model
+from django.shortcuts import redirect, get_object_or_404
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
 from .models import CustomUser
 from django.db.models import ProtectedError
+from task_manager.mixins import CheckUserForContentMixin
 
 
 # Create your views here.
-class UsersCreateView(View):
+class UsersCreateView(SuccessMessageMixin, CreateView):
 
-    def get(self, request, *args, **kwargs):
-        form = UsersCreateForm(label_suffix='')
-        return render(request, 'users/users_create.html', {
-            'form': form,
-        })
-
-    def post(self, request, *args, **kwargs):
-        form = UsersCreateForm(request.POST, label_suffix='')
-        try:
-            form.clean_password()
-        except ValidationError:
-            pass
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('User was created successfully.'))  # noqa: E501
-            return redirect('login')
-        messages.add_message(request, messages.ERROR, gettext_lazy('User is not created. Please, check the fields.'))  # noqa: E501
-        return render(request, 'users/users_create.html', {
-            'form': form,
-        })
+    model = get_user_model()
+    form_class = UsersCreateForm
+    template_name = 'users/users_create.html'
+    success_message = gettext_lazy('User was created successfully.')
+    success_url = reverse_lazy('login')
 
 
-class UsersIndexView(View):
+class UsersIndexView(ListView):
 
-    def get(self, request, *args, **kwargs):
-        users = CustomUser.objects.all()
-        return render(request, 'users/users_index.html', {
-            'users': users
-        })
+    model = get_user_model()
+    template_name = 'users/users_index.html'
+    context_object_name = 'users'
 
 
-class UsersUpdateView(LoginRequiredMixin, View):
+class UsersUpdateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    UpdateView,
+    CheckUserForContentMixin,
+):
 
-    login_url = '/login/'
+    model = get_user_model()
+    form_class = UsersCreateForm
+    template_name = 'users/users_update.html'
+    success_url = reverse_lazy('users_index')
+    success_message = gettext_lazy('User was updated successfully')
 
     def get(self, request, *args, **kwargs):
         user = get_object_or_404(CustomUser, id=kwargs['pk'])
-        if request.user.pk == user.pk:
-            form = UsersCreateForm(instance=user, label_suffix='')
-            return render(request, 'users/users_update.html', {
-                'form': form,
-            })
-        messages.add_message(request, messages.ERROR, gettext_lazy('You do not have permissions to change this user.'))  # noqa: E501
+        if self.is_user_is_author(request.user, user):
+            return super().get(request, *args, **kwargs)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('You do not have permissions to change this user'),
+        )
         return redirect('users_index')
 
     def post(self, request, *args, **kwargs):
         user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        if request.user.pk == user.pk:
-            form = UsersCreateForm(request.POST, instance=user)
-            try:
-                form.clean_password()
-            except ValidationError:
-                pass
-            if form.is_valid():
-                form.save()
-                messages.add_message(request, messages.SUCCESS, gettext_lazy('User was updated successfully.'))  # noqa: E501
-                return redirect('users_index')
-        messages.add_message(request, messages.ERROR, gettext_lazy('User is not updated. Please, check the fields.'))  # noqa: E501
-        return render(request, 'users/users_update.html', {
-            'form': form,
-        })
+        if self.is_user_is_author(request.user, user):
+            return super().post(request, *args, **kwargs)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('You do not have permissions to change this user'),
+        )
+        return redirect('users_index')
 
 
-class UsersDeleteView(LoginRequiredMixin, View):
+class UsersDeleteView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    DeleteView,
+    CheckUserForContentMixin,
+):
 
-    login_url = '/login/'
+    model = get_user_model()
+    template_name = 'users/users_delete.html'
+    success_url = reverse_lazy('users_index')
+    success_message = gettext_lazy('User was deleted')
 
     def get(self, request, *args, **kwargs):
         user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        if request.user.pk == user.pk:
-            return render(request, 'users/users_delete.html', {'id': kwargs['pk']})  # noqa: E501
-        messages.add_message(request, messages.ERROR, gettext_lazy('You do not have permissions to delete this user.'))  # noqa: E501
+        if self.is_user_is_author(request.user, user):
+            return super().get(request, *args, **kwargs)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('You do not have permissions to delete this user'),
+        )
         return redirect('users_index')
 
     def post(self, request, *args, **kwargs):
-        user_id = kwargs['pk']
-        user = get_object_or_404(CustomUser, pk=user_id)
-        if request.user.pk == user.pk:
+        user = get_object_or_404(CustomUser, pk=kwargs['pk'])
+        if self.is_user_is_author(request.user, user):
             try:
-                user.delete()
+                super().post(request, *args, *kwargs)
             except ProtectedError:
-                messages.add_message(request, messages.ERROR, gettext_lazy('You can\t delete yourself until you have active tasks.'))  # noqa: E501
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    gettext_lazy('You can\t delete yourself \
+                                 until you have active tasks'),
+                )
                 return redirect('users_index')
-            messages.add_message(request, messages.SUCCESS, gettext_lazy('User was deleted.'))  # noqa: E501
+            return redirect('users_index')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            gettext_lazy('You do not have permissions to delete this user'),
+        )
         return redirect('users_index')

@@ -47,16 +47,28 @@ class TestViews(TestCase):
             creator=self.test_user1,
         )
         self.test_task.labels.set([self.test_label1, self.test_label2])
-        self.labels_update_url = reverse('labels_update', args=[self.test_label1.pk])  # noqa: 501
-        self.labels_delete_url = reverse('labels_delete', args=[self.test_label1.pk])  # noqa: 501
-        self.labels_delete_url_empty = reverse('labels_delete', args=[self.test_label3.pk])  # noqa: 501
+        self.labels_update_url = reverse(
+            'labels_update',
+            args=[self.test_label1.pk],
+        )
+        self.labels_delete_url = reverse(
+            'labels_delete',
+            args=[self.test_label1.pk],
+        )
+        self.labels_delete_url_empty = reverse(
+            'labels_delete',
+            args=[self.test_label3.pk],
+        )
 
     def test_LabelsIndexView_GET(self):
         # Unauthorized
         response = self.client.get(self.labels_index_url)
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         response = self.client.get(self.labels_index_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed('labels/labels_index.html')
@@ -66,29 +78,44 @@ class TestViews(TestCase):
         response = self.client.get(self.labels_create_url)
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         response = self.client.get(self.labels_create_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed('labels/labels_create.html')
 
     def test_LabelsCreateView_POST(self):
         # Unauthorized
-        response = self.client.post(self.labels_create_url, {
-            'name': 'new_test_label',
-        })
+        response = self.client.post(
+            self.labels_create_url,
+            {
+                'name': 'new_test_label',
+            },
+        )
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         # Already exists
-        response = self.client.post(self.labels_create_url, {
-            'name': 'test_label1',
-        })
+        response = self.client.post(
+            self.labels_create_url,
+            {
+                'name': 'test_label1',
+            },
+        )
         self.assertEquals(response.status_code, 200)
         self.assertEquals(len(Label.objects.all()), 3)
         # New one
-        response = self.client.post(self.labels_create_url, {
-            'name': 'new_test_label',
-        })
+        response = self.client.post(
+            self.labels_create_url,
+            {
+                'name': 'new_test_label',
+            },
+        )
         self.assertEquals(len(Label.objects.all()), 4)
         self.assertEquals(response.status_code, 302)
 
@@ -97,23 +124,38 @@ class TestViews(TestCase):
         response = self.client.get(self.labels_update_url)
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         response = self.client.get(self.labels_update_url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed('labels/labels_update.html')
 
     def test_LabelsUpdateView_POST(self):
         # Unauthorized
-        response = self.client.post(self.labels_update_url, {
-            'name': 'test_label1_updated',
-        })
+        response = self.client.post(
+            self.labels_update_url,
+            {
+                'name': 'test_label1_updated',
+            },
+        )
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
-        response = self.client.post(self.labels_update_url, {
-            'name': 'test_label1_updated',
-        })
-        self.assertEquals(Label.objects.get(pk=self.test_label1.pk).name, 'test_label1_updated')  # noqa: 501
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
+        response = self.client.post(
+            self.labels_update_url,
+            {
+                'name': 'test_label1_updated',
+            },
+        )
+        self.assertEquals(
+            Label.objects.get(pk=self.test_label1.pk).name,
+            'test_label1_updated',
+        )
         self.assertEquals(response.status_code, 302)
 
     def test_LabelsDeleteView_GET(self):
@@ -121,19 +163,25 @@ class TestViews(TestCase):
         response = self.client.get(self.labels_delete_url)
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         response = self.client.get(self.labels_delete_url_empty)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed('labels/labels_delete.html')
         response = self.client.get(self.labels_delete_url)
-        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.status_code, 200)
 
     def test_LabelsDeleteView_POST(self):
         # Unauthorized
         response = self.client.post(self.labels_delete_url)
         self.assertEquals(response.status_code, 302)
         # Authorized
-        self.client.login(username='test_user1', password='test_pass1')
+        self.client.login(
+            username='test_user1',
+            password='test_pass1',
+        )
         # Has linked task
         response = self.client.post(self.labels_delete_url)
         self.assertEquals(len(Label.objects.all()), 3)

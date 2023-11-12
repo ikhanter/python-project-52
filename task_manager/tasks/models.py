@@ -8,8 +8,19 @@ from task_manager.labels.models import Label
 class Task(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(
+        Status,
+        on_delete=models.PROTECT,
+    )
     labels = models.ManyToManyField(Label, blank=True)
-    executor = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name='executor_tasks')  # noqa: 501
-    creator = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name='creator_tasks')  # noqa: 501
+    executor = models.ForeignKey(
+        CustomUser,
+        on_delete=models.PROTECT,
+        related_name='executor_tasks',
+    )
+    creator = models.ForeignKey(
+        CustomUser,
+        on_delete=models.PROTECT,
+        related_name='creator_tasks',
+    )
     created_at = models.DateTimeField(auto_now_add=True)

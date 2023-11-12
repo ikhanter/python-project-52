@@ -12,7 +12,7 @@ class TaskFilter(django_filters.FilterSet):
         label=gettext_lazy('Status'),
         label_suffix='',
         queryset=Status.objects.order_by('name'),
-        widget=forms.Select(attrs={'class': 'form-control'}),
+        widget=forms.Select(attrs={'class': 'w-100 form-control'}),
     )
     executor = django_filters.ModelChoiceFilter(
         label=gettext_lazy('Executor'),
@@ -37,11 +37,7 @@ class TaskFilter(django_filters.FilterSet):
         model = Task
         fields = ['status', 'executor', 'labels']
 
-    def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
-        super().__init__(*args, **kwargs)
-
     def filter_by_user(self, queryset, name, value):
         if not value:
             return queryset
-        return queryset.filter(creator_id=self.user.pk)
+        return queryset.filter(creator_id=self.request.user.pk)

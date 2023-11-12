@@ -7,6 +7,11 @@ from .models import CustomUser
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
 
-    list_display = ('id', 'username', 'is_active', 'is_superuser')  # noqa: E501
+    list_display = (
+        'id',
+        'username',
+        'is_active',
+        'is_superuser',
+    )
     list_filter = ['username']
     search_fields = ('username', 'first_name', 'last_name')

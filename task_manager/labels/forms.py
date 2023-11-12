@@ -19,3 +19,17 @@ class LabelsCreateForm(forms.ModelForm):
         labels = {
             'name': gettext_lazy('Name'),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].label_suffix = ''
+
+    def is_valid(self):
+        try:
+            return super().is_valid()
+        except forms.ValidationError:
+            self.add_error(
+                'name',
+                gettext_lazy('Label with this name already exists'),
+            )
+            return False
