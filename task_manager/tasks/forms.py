@@ -21,6 +21,11 @@ class TasksCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['name'].label_suffix = ''
+        self.fields['description'].label_suffix = ''
+        self.fields['status'].label_suffix = ''
+        self.fields['executor'].label_suffix = ''
+        self.fields['labels'].label_suffix = ''
         self.fields['status'].label_from_instance = lambda obj: obj.name
         self.fields['status'].queryset = Status.objects.order_by('name')
         self.fields['executor'].label_from_instance = \
