@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 22:37+0000\n"
+"POT-Creation-Date: 2023-11-12 15:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,130 +19,134 @@ msgstr ""
 
 #: task_manager/forms.py:8 task_manager/forms.py:10
 #: task_manager/templates/users/users_index.html:12
-#: task_manager/users/forms.py:32 task_manager/users/forms.py:49
+#: task_manager/users/forms.py:40 task_manager/users/forms.py:57
 msgid "Username"
-msgstr "Username"
+msgstr ""
 
-#: task_manager/forms.py:14 task_manager/forms.py:16
-#: task_manager/users/forms.py:9 task_manager/users/forms.py:11
+#: task_manager/forms.py:15 task_manager/forms.py:17
+#: task_manager/users/forms.py:9 task_manager/users/forms.py:12
 msgid "Password"
-msgstr "Password"
+msgstr ""
 
 #: task_manager/labels/forms.py:15 task_manager/labels/forms.py:20
 #: task_manager/statuses/forms.py:13 task_manager/statuses/forms.py:17
 #: task_manager/tasks/forms.py:15
 #: task_manager/templates/tasks/tasks_show.html:13
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
-#: task_manager/labels/views.py:39
-msgid "Label was created successfully."
-msgstr "Label was created successfully."
+#: task_manager/labels/forms.py:33
+msgid "Label with this name already exists"
+msgstr ""
 
-#: task_manager/labels/views.py:41 task_manager/labels/views.py:66
-msgid "This label already exists."
-msgstr "This label already exists."
+#: task_manager/labels/views.py:29
+msgid "Label was created successfully"
+msgstr ""
 
-#: task_manager/labels/views.py:64
-msgid "Label was updated successfully."
-msgstr "Label was updated successfully."
+#: task_manager/labels/views.py:38
+msgid "Label was updated successfully"
+msgstr ""
 
-#: task_manager/labels/views.py:90 task_manager/labels/views.py:99
-msgid "Label is linked with tasks. Delete linked tasks firstly."
-msgstr "Label is linked with tasks. Delete linked tasks firstly."
+#: task_manager/labels/views.py:47
+msgid "Label was deleted successfully"
+msgstr ""
 
-#: task_manager/labels/views.py:97
-msgid "Label was deleted successfully."
-msgstr "Label was deleted successfully."
+#: task_manager/labels/views.py:65
+msgid ""
+"Label is linked with tasks.                          Delete linked tasks "
+"firstly"
+msgstr ""
 
-#: task_manager/settings.py:150
+#: task_manager/settings.py:154
 msgid "Russian"
-msgstr "Russian"
+msgstr ""
 
-#: task_manager/settings.py:151
+#: task_manager/settings.py:155
 msgid "English"
-msgstr "English"
+msgstr ""
 
-#: task_manager/statuses/views.py:37
-msgid "Status was created successfully."
-msgstr "Status was created successfully."
+#: task_manager/statuses/forms.py:32
+msgid "Status with this name already exists"
+msgstr ""
 
-#: task_manager/statuses/views.py:39
-msgid "Status with this name already exists."
-msgstr "Status with this name already exists."
+#: task_manager/statuses/views.py:26
+msgid "Status was created successfully"
+msgstr ""
 
-#: task_manager/statuses/views.py:61
-msgid "Status was updated successfully."
-msgstr "Status was updated successfully."
+#: task_manager/statuses/views.py:36
+msgid "Status was updated successfully"
+msgstr ""
 
-#: task_manager/statuses/views.py:80
-msgid "You can't delete status until it's connected with active tasks."
-msgstr "You can't delete status until it's connected with active tasks."
+#: task_manager/statuses/views.py:45
+msgid "Status was deleted"
+msgstr ""
 
-#: task_manager/statuses/views.py:82
-msgid "Status was deleted."
-msgstr "Status was deleted."
+#: task_manager/statuses/views.py:55
+msgid ""
+"You can't delete status until it's                              connected "
+"with active tasks"
+msgstr ""
 
 #: task_manager/tasks/filters.py:12 task_manager/tasks/forms.py:17
+#: task_manager/templates/tasks/tasks_index.html:20
 #: task_manager/templates/tasks/tasks_show.html:21
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 #: task_manager/tasks/filters.py:18 task_manager/tasks/forms.py:18
-#: task_manager/templates/tasks/tasks_index.html:22
+#: task_manager/templates/tasks/tasks_index.html:28
+#: task_manager/templates/tasks/tasks_index.html:59
 #: task_manager/templates/tasks/tasks_show.html:45
 msgid "Executor"
-msgstr "Executor"
+msgstr ""
 
 #: task_manager/tasks/filters.py:24
-#, fuzzy
-#| msgid "Labels"
 msgid "Label"
-msgstr "Labels"
+msgstr ""
 
-#: task_manager/tasks/filters.py:29
+#: task_manager/tasks/filters.py:30
+#: task_manager/templates/tasks/tasks_index.html:44
 msgid "Only my tasks"
-msgstr "Only my tasks"
+msgstr ""
 
 #: task_manager/tasks/forms.py:16
 #: task_manager/templates/tasks/tasks_show.html:61
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: task_manager/tasks/forms.py:19 task_manager/templates/header.html:17
-#: task_manager/templates/labels/labels_index.html:8
+#: task_manager/templates/labels/labels_index.html:9
+#: task_manager/templates/tasks/tasks_index.html:36
 #: task_manager/templates/tasks/tasks_show.html:29
 msgid "Labels"
-msgstr "Labels"
+msgstr ""
 
-#: task_manager/tasks/views.py:43
-msgid "Task was created successfully."
-msgstr "Task was created successfully."
+#: task_manager/tasks/views.py:33
+msgid "Task was created successfully"
+msgstr ""
 
-#: task_manager/tasks/views.py:45
-msgid "Task was not created. Please, fill the fields correctly."
-msgstr "Task was not created. Please, fill the fields correctly."
+#: task_manager/tasks/views.py:62
+msgid "Task was updated successfully"
+msgstr ""
 
-#: task_manager/tasks/views.py:76 task_manager/tasks/views.py:87
-msgid "You don't have permissions to update foreign tasks."
-msgstr "You don't have permissions to update foreign tasks."
+#: task_manager/tasks/views.py:72 task_manager/tasks/views.py:84
+msgid ""
+"You don't have permissions                          to update foreign tasks."
+msgstr ""
 
-#: task_manager/tasks/views.py:85
-msgid "Task was updated successfully."
-msgstr "Task was updated successfully."
+#: task_manager/tasks/views.py:100
+msgid "Task was deleted successfully"
+msgstr ""
 
-#: task_manager/tasks/views.py:101 task_manager/tasks/views.py:110
-msgid "You don't have permissions to delete foreign tasks."
-msgstr "You don't have permissions to delete foreign tasks."
-
-#: task_manager/tasks/views.py:108
-msgid "Task was deleted successfully."
-msgstr "Task was deleted successfully."
+#: task_manager/tasks/views.py:110 task_manager/tasks/views.py:122
+msgid ""
+"You don't have permissions                          to delete foreign tasks."
+msgstr ""
 
 #: task_manager/templates/about.html:10 task_manager/templates/header.html:10
 #: task_manager/templates/index.html:10
 msgid "Task Manager"
-msgstr "Task Manager"
+msgstr ""
 
 #: task_manager/templates/about.html:14
 msgid ""
@@ -153,24 +157,16 @@ msgid ""
 "                    a characteristic set of labels and executors to tasks.\n"
 "                    "
 msgstr ""
-"\n"
-"                    The task manager is a web service \n"
-"                    for organizing tasks between users with \n"
-"                    the ability to assign unique statuses, \n"
-"                    a characteristic set of labels and executors to tasks.\n"
-"                    "
 
 #: task_manager/templates/about.html:22
 msgid "Statuses, labels and tasks are created by the users themselves."
-msgstr "Statuses, labels and tasks are created by the users themselves."
+msgstr ""
 
 #: task_manager/templates/about.html:25
 msgid ""
 "There is protection against deleting statuses, labels and users if tasks are "
 "assigned to them."
 msgstr ""
-"There is protection against deleting statuses, labels and users if tasks are "
-"assigned to them."
 
 #: task_manager/templates/about.html:28
 msgid ""
@@ -181,274 +177,260 @@ msgid ""
 "user.\n"
 "                    "
 msgstr ""
-"\n"
-"                    A filter has been implemented to search for \n"
-"                    task needs by status, labels and executor. There is \n"
-"                    also a filter to display only tasks created by the "
-"user.\n"
-"                    "
 
 #: task_manager/templates/header.html:14
 #: task_manager/templates/users/users_index.html:8
 msgid "Users"
-msgstr "Users"
+msgstr ""
 
 #: task_manager/templates/header.html:16
-#: task_manager/templates/statuses/statuses_index.html:8
+#: task_manager/templates/statuses/statuses_index.html:9
 msgid "Statuses"
-msgstr "Statuses"
+msgstr ""
 
 #: task_manager/templates/header.html:18
-#: task_manager/templates/tasks/tasks_index.html:8
+#: task_manager/templates/tasks/tasks_index.html:9
 msgid "Tasks"
-msgstr "Tasks"
+msgstr ""
 
 #: task_manager/templates/header.html:25
 msgid "Log out"
-msgstr "Log out"
+msgstr ""
 
 #: task_manager/templates/header.html:27 task_manager/templates/login.html:8
 msgid "Log in"
-msgstr "Log in"
+msgstr ""
 
 #: task_manager/templates/header.html:28
 msgid "Sign up"
-msgstr "Sign up"
+msgstr ""
 
 #: task_manager/templates/index.html:13
 msgid "Organize and get the prize"
-msgstr "Organize and get the prize"
+msgstr ""
 
 #: task_manager/templates/index.html:18
 msgid "More"
-msgstr "More"
+msgstr ""
 
 #: task_manager/templates/labels/labels_create.html:9
-#: task_manager/templates/labels/labels_index.html:10
+#: task_manager/templates/labels/labels_index.html:11
 msgid "Create label"
-msgstr "Create label"
+msgstr ""
 
-#: task_manager/templates/labels/labels_create.html:15
-#: task_manager/templates/statuses/statuses_create.html:15
+#: task_manager/templates/labels/labels_create.html:16
+#: task_manager/templates/statuses/statuses_create.html:16
 #: task_manager/templates/tasks/tasks_create.html:15
 msgid "Create"
-msgstr "Create"
+msgstr ""
 
 #: task_manager/templates/labels/labels_delete.html:9
 msgid "Delete label"
-msgstr "Delete label"
+msgstr ""
 
 #: task_manager/templates/labels/labels_delete.html:10
 msgid "Are you sure? Do you want to delete label?"
-msgstr "Are you sure? Do you want to delete label?"
+msgstr ""
 
 #: task_manager/templates/labels/labels_delete.html:14
 #: task_manager/templates/statuses/statuses_delete.html:14
 #: task_manager/templates/tasks/tasks_delete.html:14
 #: task_manager/templates/users/users_delete.html:14
 msgid "Yes, delete"
-msgstr "Yes, delete"
+msgstr ""
 
 #: task_manager/templates/labels/labels_delete.html:18
 #: task_manager/templates/statuses/statuses_delete.html:18
 #: task_manager/templates/tasks/tasks_delete.html:17
 #: task_manager/templates/users/users_delete.html:18
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
-#: task_manager/templates/labels/labels_index.html:15
+#: task_manager/templates/labels/labels_index.html:17
 msgid "Label name"
-msgstr "Label name"
+msgstr ""
 
-#: task_manager/templates/labels/labels_index.html:16
-#: task_manager/templates/statuses/statuses_index.html:16
-#: task_manager/templates/tasks/tasks_index.html:24
+#: task_manager/templates/labels/labels_index.html:18
+#: task_manager/templates/statuses/statuses_index.html:18
+#: task_manager/templates/tasks/tasks_index.html:61
 #: task_manager/templates/tasks/tasks_show.html:69
 #: task_manager/templates/users/users_index.html:14
 msgid "Creation date"
-msgstr "Creation date"
+msgstr ""
 
-#: task_manager/templates/labels/labels_index.html:25
+#: task_manager/templates/labels/labels_index.html:27
 #: task_manager/templates/labels/labels_update.html:15
-#: task_manager/templates/statuses/statuses_index.html:25
+#: task_manager/templates/statuses/statuses_index.html:27
 #: task_manager/templates/statuses/statuses_update.html:15
-#: task_manager/templates/tasks/tasks_index.html:35
+#: task_manager/templates/tasks/tasks_index.html:72
 #: task_manager/templates/tasks/tasks_update.html:15
 #: task_manager/templates/users/users_index.html:24
 #: task_manager/templates/users/users_update.html:19
 msgid "Update"
-msgstr "Update"
+msgstr ""
 
-#: task_manager/templates/labels/labels_index.html:26
-#: task_manager/templates/statuses/statuses_index.html:26
-#: task_manager/templates/tasks/tasks_index.html:36
+#: task_manager/templates/labels/labels_index.html:28
+#: task_manager/templates/statuses/statuses_index.html:28
+#: task_manager/templates/tasks/tasks_index.html:73
 #: task_manager/templates/users/users_index.html:25
 msgid "Delete"
-msgstr "Delete"
+msgstr ""
 
 #: task_manager/templates/labels/labels_update.html:9
 msgid "Update label"
-msgstr "Update label"
+msgstr ""
 
 #: task_manager/templates/login.html:12
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #: task_manager/templates/statuses/statuses_create.html:9
-#: task_manager/templates/statuses/statuses_index.html:10
+#: task_manager/templates/statuses/statuses_index.html:11
 msgid "Create status"
-msgstr "Create status"
+msgstr ""
 
 #: task_manager/templates/statuses/statuses_delete.html:9
 msgid "Delete status"
-msgstr "Delete status"
+msgstr ""
 
 #: task_manager/templates/statuses/statuses_delete.html:10
 msgid "Are you sure? Do you want to delete status?"
-msgstr "Are you sure? Do you want to delete status?"
+msgstr ""
 
-#: task_manager/templates/statuses/statuses_index.html:15
+#: task_manager/templates/statuses/statuses_index.html:17
 msgid "Status name"
-msgstr "Status name"
+msgstr ""
 
 #: task_manager/templates/statuses/statuses_update.html:9
 msgid "Update status"
-msgstr "Update status"
+msgstr ""
 
 #: task_manager/templates/tasks/tasks_create.html:9
-#: task_manager/templates/tasks/tasks_index.html:10
+#: task_manager/templates/tasks/tasks_index.html:11
 msgid "Create task"
-msgstr "Create task"
+msgstr ""
 
 #: task_manager/templates/tasks/tasks_delete.html:9
 msgid "Delete task"
-msgstr "Delete task"
+msgstr ""
 
 #: task_manager/templates/tasks/tasks_delete.html:10
 msgid "Are you sure? Do you want to delete task?"
-msgstr "Are you sure? Do you want to delete task?"
+msgstr ""
 
-#: task_manager/templates/tasks/tasks_index.html:15
+#: task_manager/templates/tasks/tasks_index.html:52
 msgid "Filter"
-msgstr "Filter"
+msgstr ""
 
-#: task_manager/templates/tasks/tasks_index.html:21
+#: task_manager/templates/tasks/tasks_index.html:58
 msgid "Task name"
-msgstr "Task name"
+msgstr ""
 
-#: task_manager/templates/tasks/tasks_index.html:23
+#: task_manager/templates/tasks/tasks_index.html:60
 #: task_manager/templates/tasks/tasks_show.html:53
 msgid "Creator"
-msgstr "Creator"
+msgstr ""
 
 #: task_manager/templates/tasks/tasks_show.html:9
 msgid "Task"
-msgstr "Task"
+msgstr ""
 
 #: task_manager/templates/tasks/tasks_update.html:9
 msgid "Update task"
-msgstr "Update task"
+msgstr ""
 
 #: task_manager/templates/users/users_create.html:9
 msgid "Registration"
-msgstr "Registration"
+msgstr ""
 
 #: task_manager/templates/users/users_create.html:19
 msgid "Register"
-msgstr "Register"
+msgstr ""
 
 #: task_manager/templates/users/users_delete.html:9
 msgid "Delete profile"
-msgstr "Delete profile"
+msgstr ""
 
 #: task_manager/templates/users/users_delete.html:10
 msgid "Are you sure? Do you want to delete your profile?"
-msgstr "Are you sure? Do you want to delete your profile?"
+msgstr ""
 
 #: task_manager/templates/users/users_index.html:13
 msgid "Full name"
-msgstr "Full name"
+msgstr ""
 
 #: task_manager/templates/users/users_update.html:9
 msgid "Update profile"
-msgstr "Update profile"
+msgstr ""
 
-#: task_manager/users/forms.py:15
+#: task_manager/users/forms.py:17
 msgid "Your password must contain at least 3 symbols."
-msgstr "Your password must contain at least 3 symbols."
+msgstr ""
 
-#: task_manager/users/forms.py:18 task_manager/users/forms.py:20
+#: task_manager/users/forms.py:21 task_manager/users/forms.py:24
 msgid "Confirm password"
-msgstr "Confirm password"
-
-#: task_manager/users/forms.py:24
-msgid ""
-"For the password confirmation, please, enter the password one more time."
 msgstr ""
-"For the password confirmation, please, enter the password one more time."
 
-#: task_manager/users/forms.py:30 task_manager/users/forms.py:37
+#: task_manager/users/forms.py:29
+msgid ""
+"For the password confirmation,                 please, enter the password "
+"one more time."
+msgstr ""
+
+#: task_manager/users/forms.py:38 task_manager/users/forms.py:45
 msgid "First name"
-msgstr "First name"
-
-#: task_manager/users/forms.py:31 task_manager/users/forms.py:43
-msgid "Last name"
-msgstr "Last name"
-
-#: task_manager/users/forms.py:55
-msgid ""
-"Required field. Max length is 150 symbols. Letters, digits and  @/./+/-/_ "
-"symbols are allowed."
 msgstr ""
-"Required field. Max length is 150 symbols. Letters, digits and  @/./+/-/_ "
-"symbols are allowed."
 
-#: task_manager/users/views.py:29
+#: task_manager/users/forms.py:39 task_manager/users/forms.py:51
+msgid "Last name"
+msgstr ""
+
+#: task_manager/users/forms.py:64
+msgid ""
+"Required field. Max length is 150 symbols.                     Letters, "
+"digits and  @/./+/-/_ symbols are allowed."
+msgstr ""
+
+#: task_manager/users/forms.py:79
+msgid "Passwords do not match"
+msgstr ""
+
+#: task_manager/users/views.py:21
 msgid "User was created successfully."
-msgstr "User was created successfully."
+msgstr ""
 
-#: task_manager/users/views.py:31
-msgid "User is not created. Please, check the fields."
-msgstr "User is not created. Please, check the fields."
+#: task_manager/users/views.py:43
+msgid "User was updated successfully"
+msgstr ""
 
-#: task_manager/users/views.py:57
-msgid "You do not have permissions to change this user."
-msgstr "You do not have permissions to change this user."
+#: task_manager/users/views.py:52 task_manager/users/views.py:63
+msgid "You do not have permissions to change this user"
+msgstr ""
 
-#: task_manager/users/views.py:70
-msgid "User was updated successfully."
-msgstr "User was updated successfully."
+#: task_manager/users/views.py:78
+msgid "User was deleted"
+msgstr ""
 
-#: task_manager/users/views.py:72
-msgid "User is not updated. Please, check the fields."
-msgstr "User is not updated. Please, check the fields."
+#: task_manager/users/views.py:87 task_manager/users/views.py:108
+msgid "You do not have permissions to delete this user"
+msgstr ""
 
-#: task_manager/users/views.py:86
-msgid "You do not have permissions to delete this user."
-msgstr "You do not have permissions to delete this user."
+#: task_manager/users/views.py:100
+msgid ""
+"You can\t delete yourself                                  until you have "
+"active tasks"
+msgstr ""
 
-#: task_manager/users/views.py:96
-msgid "You can\t delete yourself until you have active tasks."
-msgstr "You can\t delete yourself until you have active tasks."
-
-#: task_manager/users/views.py:98
-msgid "User was deleted."
-msgstr "User was deleted."
-
-#: task_manager/views.py:27
+#: task_manager/views.py:33
 msgid "You are logged in."
-msgstr "You are logged in."
+msgstr ""
 
-#: task_manager/views.py:30
-msgid "Your username and password didn't match. Please try again."
-msgstr "Your username and password didn't match. Please try again."
+#: task_manager/views.py:40
+msgid ""
+"Your username and password didn't match.                          Please try "
+"again."
+msgstr ""
 
-#: task_manager/views.py:38
+#: task_manager/views.py:53
 msgid "You are logged out."
-msgstr "You are logged out."
-
-#~ msgid "Yes"
-#~ msgstr "Yes"
-
-#~ msgid "No"
-#~ msgstr "No"
+msgstr ""
