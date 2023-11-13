@@ -6,13 +6,12 @@ from django_filters.views import FilterView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy
 from django.urls import reverse_lazy
 from .filters import TaskFilter
 from .models import Task
 from .forms import TasksCreateForm
-from task_manager.mixins import CheckUserForContentMixin
+from task_manager.mixins import CheckUserForTasksMixin
 
 
 # Create your views here.
@@ -49,13 +48,13 @@ class TasksShowView(LoginRequiredMixin, DetailView):
 
 
 class TasksUpdateView(
-    LoginRequiredMixin,
+    CheckUserForTasksMixin,
     SuccessMessageMixin,
     UpdateView,
-    CheckUserForContentMixin,
 ):
 
     model = Task
+    login_url = '/login/'
     template_name = 'tasks/tasks_update.html'
     context_object_name = 'task'
     form_class = TasksCreateForm
@@ -63,8 +62,7 @@ class TasksUpdateView(
     success_url = reverse_lazy('tasks_index')
 
     def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, task.creator):
+        if self.is_user_is_author:
             return super().get(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -75,8 +73,7 @@ class TasksUpdateView(
         return redirect('tasks_index')
 
     def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, task.creator):
+        if self.is_user_is_author:
             return super().post(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -88,21 +85,20 @@ class TasksUpdateView(
 
 
 class TasksDeleteView(
-    LoginRequiredMixin,
+    CheckUserForTasksMixin,
     SuccessMessageMixin,
     DeleteView,
-    CheckUserForContentMixin,
 ):
 
     model = Task
+    login_url = '/login/'
     template_name = 'tasks/tasks_delete.html'
     context_object_name = 'task'
     success_message = gettext_lazy('Task was deleted successfully')
     success_url = reverse_lazy('tasks_index')
 
     def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, task.creator):
+        if self.is_user_is_author:
             return super().get(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -113,8 +109,7 @@ class TasksDeleteView(
         return redirect('tasks_index')
 
     def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, task.creator):
+        if self.is_user_is_author:
             return super().post(request, *args, **kwargs)
         messages.add_message(
             request,

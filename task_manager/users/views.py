@@ -1,15 +1,13 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
-from .models import CustomUser
 from django.db.models import ProtectedError
-from task_manager.mixins import CheckUserForContentMixin
+from task_manager.mixins import CheckUserForUsersMixin
 
 
 # Create your views here.
@@ -30,21 +28,20 @@ class UsersIndexView(ListView):
 
 
 class UsersUpdateView(
-    LoginRequiredMixin,
+    CheckUserForUsersMixin,
     SuccessMessageMixin,
     UpdateView,
-    CheckUserForContentMixin,
 ):
 
     model = get_user_model()
+    login_url = '/login/'
     form_class = UsersCreateForm
     template_name = 'users/users_update.html'
     success_url = reverse_lazy('users_index')
     success_message = gettext_lazy('User was updated successfully')
 
     def get(self, request, *args, **kwargs):
-        user = get_object_or_404(CustomUser, id=kwargs['pk'])
-        if self.is_user_is_author(request.user, user):
+        if self.is_user_is_author:
             return super().get(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -54,8 +51,7 @@ class UsersUpdateView(
         return redirect('users_index')
 
     def post(self, request, *args, **kwargs):
-        user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, user):
+        if self.is_user_is_author:
             return super().post(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -66,10 +62,9 @@ class UsersUpdateView(
 
 
 class UsersDeleteView(
-    LoginRequiredMixin,
+    CheckUserForUsersMixin,
     SuccessMessageMixin,
     DeleteView,
-    CheckUserForContentMixin,
 ):
 
     model = get_user_model()
@@ -78,8 +73,7 @@ class UsersDeleteView(
     success_message = gettext_lazy('User was deleted')
 
     def get(self, request, *args, **kwargs):
-        user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, user):
+        if self.is_user_is_author:
             return super().get(request, *args, **kwargs)
         messages.add_message(
             request,
@@ -89,8 +83,7 @@ class UsersDeleteView(
         return redirect('users_index')
 
     def post(self, request, *args, **kwargs):
-        user = get_object_or_404(CustomUser, pk=kwargs['pk'])
-        if self.is_user_is_author(request.user, user):
+        if self.is_user_is_author:
             try:
                 super().post(request, *args, *kwargs)
             except ProtectedError:
