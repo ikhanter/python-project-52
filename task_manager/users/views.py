@@ -1,13 +1,14 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
 from django.db.models import ProtectedError
-from task_manager.mixins import CheckUserForUsersMixin
+from task_manager.mixins import CheckUserMixin
 
 
 # Create your views here.
@@ -28,7 +29,8 @@ class UsersIndexView(ListView):
 
 
 class UsersUpdateView(
-    CheckUserForUsersMixin,
+    LoginRequiredMixin,
+    CheckUserMixin,
     SuccessMessageMixin,
     UpdateView,
 ):
@@ -39,30 +41,12 @@ class UsersUpdateView(
     template_name = 'users/users_update.html'
     success_url = reverse_lazy('users_index')
     success_message = gettext_lazy('User was updated successfully')
-
-    def get(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().get(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You do not have permissions to change this user'),
-        )
-        return redirect('users_index')
-
-    def post(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().post(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You do not have permissions to change this user'),
-        )
-        return redirect('users_index')
+    error_message = gettext_lazy('You do not have permissions to change this user')
 
 
 class UsersDeleteView(
-    CheckUserForUsersMixin,
+    LoginRequiredMixin,
+    CheckUserMixin,
     SuccessMessageMixin,
     DeleteView,
 ):
@@ -71,33 +55,17 @@ class UsersDeleteView(
     template_name = 'users/users_delete.html'
     success_url = reverse_lazy('users_index')
     success_message = gettext_lazy('User was deleted')
-
-    def get(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().get(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You do not have permissions to delete this user'),
-        )
-        return redirect('users_index')
+    error_message = gettext_lazy('You do not have permissions to delete this user')
 
     def post(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            try:
-                super().post(request, *args, *kwargs)
-            except ProtectedError:
-                messages.add_message(
-                    request,
-                    messages.ERROR,
-                    gettext_lazy('You can\t delete yourself \
-                                 until you have active tasks'),
-                )
-                return redirect('users_index')
+        try:
+            super().post(request, *args, *kwargs)
+        except ProtectedError:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                gettext_lazy('You can\t delete yourself \
+                                until you have active tasks'),
+            )
             return redirect('users_index')
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You do not have permissions to delete this user'),
-        )
         return redirect('users_index')

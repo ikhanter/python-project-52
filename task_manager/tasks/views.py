@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 from .filters import TaskFilter
 from .models import Task
 from .forms import TasksCreateForm
-from task_manager.mixins import CheckUserForTasksMixin
+from task_manager.mixins import CheckUserMixin
 
 
 # Create your views here.
@@ -32,11 +32,7 @@ class TasksCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = gettext_lazy('Task was created successfully')
 
     def form_valid(self, form: forms.ModelForm) -> HttpResponse:
-        if form.is_valid():
-            task = form.save(commit=False)
-            task.creator = self.request.user
-            task.save()
-            form.save_m2m()
+        form.instance.creator = self.request.user
         return super().form_valid(form)
 
 
@@ -48,7 +44,8 @@ class TasksShowView(LoginRequiredMixin, DetailView):
 
 
 class TasksUpdateView(
-    CheckUserForTasksMixin,
+    LoginRequiredMixin,
+    CheckUserMixin,
     SuccessMessageMixin,
     UpdateView,
 ):
@@ -60,32 +57,13 @@ class TasksUpdateView(
     form_class = TasksCreateForm
     success_message = gettext_lazy('Task was updated successfully')
     success_url = reverse_lazy('tasks_index')
-
-    def get(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().get(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You don\'t have permissions \
-                         to update foreign tasks.'),
-        )
-        return redirect('tasks_index')
-
-    def post(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().post(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You don\'t have permissions \
-                         to update foreign tasks.'),
-        )
-        return redirect('tasks_index')
+    error_message = gettext_lazy('You don\'t have permissions \
+                                 to update foreign tasks.')
 
 
 class TasksDeleteView(
-    CheckUserForTasksMixin,
+    LoginRequiredMixin,
+    CheckUserMixin,
     SuccessMessageMixin,
     DeleteView,
 ):
@@ -96,25 +74,5 @@ class TasksDeleteView(
     context_object_name = 'task'
     success_message = gettext_lazy('Task was deleted successfully')
     success_url = reverse_lazy('tasks_index')
-
-    def get(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().get(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You don\'t have permissions \
-                         to delete foreign tasks.'),
-        )
-        return redirect('tasks_index')
-
-    def post(self, request, *args, **kwargs):
-        if self.is_user_is_author:
-            return super().post(request, *args, **kwargs)
-        messages.add_message(
-            request,
-            messages.ERROR,
-            gettext_lazy('You don\'t have permissions \
-                         to delete foreign tasks.'),
-        )
-        return redirect('tasks_index')
+    error_message = gettext_lazy('You don\'t have permissions \
+                                 to delete foreign tasks.')

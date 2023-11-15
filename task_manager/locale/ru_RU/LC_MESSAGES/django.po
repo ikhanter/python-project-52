@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-12 16:04+0000\n"
+"POT-Creation-Date: 2023-11-15 16:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,26 +121,28 @@ msgstr "Описание"
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/tasks/views.py:33
+#: task_manager/tasks/views.py:32
 msgid "Task was created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:62
+#: task_manager/tasks/views.py:58
 msgid "Task was updated successfully"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:72 task_manager/tasks/views.py:84
+#: task_manager/tasks/views.py:60
 msgid ""
-"You don't have permissions                          to update foreign tasks."
+"You don't have permissions                                  to update "
+"foreign tasks."
 msgstr "Задачу может изменить только ее автор"
 
-#: task_manager/tasks/views.py:100
+#: task_manager/tasks/views.py:75
 msgid "Task was deleted successfully"
 msgstr "Задача успешно удалена"
 
-#: task_manager/tasks/views.py:110 task_manager/tasks/views.py:122
+#: task_manager/tasks/views.py:77
 msgid ""
-"You don't have permissions                          to delete foreign tasks."
+"You don't have permissions                                  to delete "
+"foreign tasks."
 msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/templates/about.html:10 task_manager/templates/header.html:10
@@ -411,7 +413,7 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: task_manager/users/views.py:21
+#: task_manager/users/views.py:20
 msgid "User was created successfully."
 msgstr "Пользователь успешно зарегистрирован"
 
@@ -419,21 +421,21 @@ msgstr "Пользователь успешно зарегистрирован"
 msgid "User was updated successfully"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:52 task_manager/users/views.py:63
+#: task_manager/users/views.py:44
 msgid "You do not have permissions to change this user"
 msgstr "Нельзя изменить этого пользователя"
 
-#: task_manager/users/views.py:78
+#: task_manager/users/views.py:57
 msgid "User was deleted"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:87 task_manager/users/views.py:108
+#: task_manager/users/views.py:58
 msgid "You do not have permissions to delete this user"
 msgstr "Нельзя удалить этого пользователя"
 
-#: task_manager/users/views.py:100
+#: task_manager/users/views.py:67
 msgid ""
-"You can\t delete yourself                                  until you have "
+"You can\t delete yourself                                 until you have "
 "active tasks"
 msgstr "Вы не можете удалить свой профиль, пока у вас есть активные задачи"
 
