@@ -1,10 +1,8 @@
 from django import forms
 from django.http.response import HttpResponse
-from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django_filters.views import FilterView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy
 from django.urls import reverse_lazy

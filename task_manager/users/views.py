@@ -41,7 +41,8 @@ class UsersUpdateView(
     template_name = 'users/users_update.html'
     success_url = reverse_lazy('users_index')
     success_message = gettext_lazy('User was updated successfully')
-    error_message = gettext_lazy('You do not have permissions to change this user')
+    error_message = gettext_lazy('You do not have permissions \
+                                 to change this user')
 
 
 class UsersDeleteView(
@@ -55,7 +56,8 @@ class UsersDeleteView(
     template_name = 'users/users_delete.html'
     success_url = reverse_lazy('users_index')
     success_message = gettext_lazy('User was deleted')
-    error_message = gettext_lazy('You do not have permissions to delete this user')
+    error_message = gettext_lazy('You do not have permissions \
+                                 to delete this user')
 
     def post(self, request, *args, **kwargs):
         try:
