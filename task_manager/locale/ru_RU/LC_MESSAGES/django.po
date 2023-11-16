@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 16:09+0000\n"
+"POT-Creation-Date: 2023-11-16 15:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr "Описание"
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/tasks/views.py:32
+#: task_manager/tasks/views.py:31
 msgid "Task was created successfully"
 msgstr "Задача успешно создана"
 
@@ -135,11 +135,11 @@ msgid ""
 "foreign tasks."
 msgstr "Задачу может изменить только ее автор"
 
-#: task_manager/tasks/views.py:75
+#: task_manager/tasks/views.py:77
 msgid "Task was deleted successfully"
 msgstr "Задача успешно удалена"
 
-#: task_manager/tasks/views.py:77
+#: task_manager/tasks/views.py:79
 msgid ""
 "You don't have permissions                                  to delete "
 "foreign tasks."
@@ -413,27 +413,31 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: task_manager/users/views.py:20
+#: task_manager/users/views.py:21
 msgid "User was created successfully."
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:43
+#: task_manager/users/views.py:45
 msgid "User was updated successfully"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:44
-msgid "You do not have permissions to change this user"
-msgstr "Нельзя изменить этого пользователя"
+#: task_manager/users/views.py:46
+msgid ""
+"You do not have permissions                                  to change this "
+"user"
+msgstr "У вас нет прав для изменения другого пользователя"
 
-#: task_manager/users/views.py:57
+#: task_manager/users/views.py:62
 msgid "User was deleted"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/users/views.py:58
-msgid "You do not have permissions to delete this user"
-msgstr "Нельзя удалить этого пользователя"
+#: task_manager/users/views.py:63
+msgid ""
+"You do not have permissions                                  to delete this "
+"user"
+msgstr "У вас нет прав для изменения другого пользователя"
 
-#: task_manager/users/views.py:67
+#: task_manager/users/views.py:74
 msgid ""
 "You can\t delete yourself                                 until you have "
 "active tasks"
@@ -453,3 +457,9 @@ msgstr ""
 #: task_manager/views.py:53
 msgid "You are logged out."
 msgstr "Вы разлогинены"
+
+#~ msgid "You do not have permissions to change this user"
+#~ msgstr "У вас нет прав для изменения другого пользователя"
+
+#~ msgid "You do not have permissions to delete this user"
+#~ msgstr "У вас нет прав для изменения другого пользователя"

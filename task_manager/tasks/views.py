@@ -7,6 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy
 from django.urls import reverse_lazy
 from .filters import TaskFilter
+from .mixins import CheckUserForTasksMixin
 from .models import Task
 from .forms import TasksCreateForm
 from task_manager.mixins import CheckUserMixin
@@ -45,6 +46,7 @@ class TasksUpdateView(
     LoginRequiredMixin,
     CheckUserMixin,
     SuccessMessageMixin,
+    CheckUserForTasksMixin,
     UpdateView,
 ):
 
@@ -57,12 +59,14 @@ class TasksUpdateView(
     success_url = reverse_lazy('tasks_index')
     error_message = gettext_lazy('You don\'t have permissions \
                                  to update foreign tasks.')
+    no_permission_redirect_url = reverse_lazy('tasks_index')
 
 
 class TasksDeleteView(
     LoginRequiredMixin,
     CheckUserMixin,
     SuccessMessageMixin,
+    CheckUserForTasksMixin,
     DeleteView,
 ):
 
@@ -74,3 +78,4 @@ class TasksDeleteView(
     success_url = reverse_lazy('tasks_index')
     error_message = gettext_lazy('You don\'t have permissions \
                                  to delete foreign tasks.')
+    no_permission_redirect_url = reverse_lazy('tasks_index')

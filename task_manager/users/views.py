@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy
 from .forms import UsersCreateForm
 from django.db.models import ProtectedError
 from task_manager.mixins import CheckUserMixin
+from .mixins import CheckUserInUsersMixin
 
 
 # Create your views here.
@@ -32,6 +33,7 @@ class UsersUpdateView(
     LoginRequiredMixin,
     CheckUserMixin,
     SuccessMessageMixin,
+    CheckUserInUsersMixin,
     UpdateView,
 ):
 
@@ -43,12 +45,14 @@ class UsersUpdateView(
     success_message = gettext_lazy('User was updated successfully')
     error_message = gettext_lazy('You do not have permissions \
                                  to change this user')
+    no_permission_redirect_url = reverse_lazy('users_index')
 
 
 class UsersDeleteView(
     LoginRequiredMixin,
     CheckUserMixin,
     SuccessMessageMixin,
+    CheckUserInUsersMixin,
     DeleteView,
 ):
 
@@ -58,6 +62,7 @@ class UsersDeleteView(
     success_message = gettext_lazy('User was deleted')
     error_message = gettext_lazy('You do not have permissions \
                                  to delete this user')
+    no_permission_redirect_url = reverse_lazy('users_index')
 
     def post(self, request, *args, **kwargs):
         try:
