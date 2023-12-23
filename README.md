@@ -7,6 +7,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9a396dd3b145c2d70354/test_coverage)](https://codeclimate.com/github/ikhanter/python-project-52/test_coverage)
 
 Link: [https://task-manager-2wl4.onrender.com/](https://task-manager-2wl4.onrender.com/)
+The web service may be deactivated due to the expiration of the free operating time of the database and the service itself. Please write to me to activate the service and rebuild the database.
 
 # About
 Task Manager is the web-service for organizing tasks between registered users. Each task must have status, executor, and optionally labels (m2m). All content (statuses, labels) creates by users themselves and can be updated by creators. If status, label or user are linked with tasks, they are unavailable for deleting.
